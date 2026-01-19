@@ -1,0 +1,9 @@
+.dashboard{
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.outlet{
+    background-color: aliceblue;
+}

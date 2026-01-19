@@ -1,14 +1,29 @@
 import { useLocation, useNavigate } from "react-router-dom";
 
+import {
+  faUser,
+  faStar,
+  faBriefcase,
+  faHouseLaptop,
+  faCertificate,
+  faSitemap,
+  faAddressCard
+
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
 const Navbar = () => {
+
+
   const buttonItems = [
-    { name: "Start", value: "" },
-    { name: "Über mich", value: "about-me" },
-    { name: "Karriere", value: "career-history" },
-    { name: "Zertifikate", value: "certificates" },
-    { name: "Projekte", value: "projects" },
-    { name: "Fähigkeiten", value: "skills" },
-    { name: "Kontaktiere mich", value: "contact-me" },
+    { icon: faStar, name: "Start", value: "" },
+    { icon: faUser, name: "Über mich", value: "about-me" },
+    { icon: faBriefcase, name: "Karriere", value: "career-history" },
+    { icon: faCertificate, name: "Zertifikate", value: "certificates" },
+    { icon: faHouseLaptop, name: "Projekte", value: "projects" },
+    { icon: faSitemap, name: "Fähigkeiten", value: "skills" },
+    { icon: faAddressCard, name: "Kontaktiere mich", value: "contact-me" },
   ];
 
   const navigate = useNavigate();
@@ -24,6 +39,7 @@ const Navbar = () => {
           disabled={button.value === currentPath}
         >
           {button.name}
+          <FontAwesomeIcon icon={button.icon} />
         </button>
       ))}
     </>
