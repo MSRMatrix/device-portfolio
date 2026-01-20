@@ -12,13 +12,24 @@
 
 #root {
   min-height: 100vh;
+  min-height: 100vw;
 }
 
 @supports (height: 100dvh) {
   #root {
     min-height: 100dvh;
+    
   }
 }
+
+@supports (width: 100dvw) {
+  #root {
+    min-width: 100dvw;
+    
+  }
+}
+
+
 
 .app{
   min-height: inherit;

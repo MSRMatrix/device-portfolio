@@ -1,3 +1,5 @@
+import "./navbar.css"
+
 import { useLocation, useNavigate } from "react-router-dom";
 
 import {
@@ -31,18 +33,22 @@ const Navbar = () => {
   const currentPath = location.pathname.slice(1);
 
   return (
-    <>
+    <div className="navbar">
       {buttonItems.map((button) => (
+        <div className="navbutton">
         <button
           key={button.value}
           onClick={() => navigate(`/${button.value}`)}
           disabled={button.value === currentPath}
         >
-          {button.name}
+          
           <FontAwesomeIcon icon={button.icon} />
         </button>
+        <p>{button.name}</p>  
+        </div>
+        
       ))}
-    </>
+    </div>
   );
 };
 

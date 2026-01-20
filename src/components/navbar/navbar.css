@@ -1,0 +1,28 @@
+.navbar{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .navbutton {
+  display: flex;
+  gap: 0.25rem;
+  p {
+  text-align: center;
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+}
+
+}
+
+}
+
+@media (max-width: 600px){
+    .navbar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        .navbutton{
+          flex-direction: column;
+  align-items: center;  
+        }
+    }
+}

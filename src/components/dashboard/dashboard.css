@@ -1,9 +1,26 @@
+.missing-name{
+    display: flex;
+    justify-content: space-between;
+}
+
 .dashboard{
     min-height: inherit;
     display: flex;
     flex-direction: column;
+    min-width: inherit;
 }
 
 .outlet{
     background-color: aliceblue;
+    width: 50%;
+}
+
+
+@media (max-width: 600px){
+.missing-name{
+    display: block;
+}
+    .outlet{
+        width: 100%;
+    }
 }
