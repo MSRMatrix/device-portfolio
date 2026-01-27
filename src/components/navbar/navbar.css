@@ -5,6 +5,7 @@
     justify-content: space-between;
     .navbutton {
   display: flex;
+  align-items: center;
   gap: 0.25rem;
   p {
   text-align: center;
