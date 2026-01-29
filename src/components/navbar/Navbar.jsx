@@ -25,7 +25,7 @@ const Navbar = () => {
     { icon: faCertificate, name: "Zertifikate", value: "certificates" },
     { icon: faHouseLaptop, name: "Projekte", value: "projects" },
     { icon: faSitemap, name: "Fähigkeiten", value: "skills" },
-    { icon: faAddressCard, name: "Kontaktiere mich", value: "contact-me" },
+    { icon: faAddressCard, name: "Kontakt", value: "contact-me" },
   ];
 
   const navigate = useNavigate();
