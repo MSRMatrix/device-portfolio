@@ -35,18 +35,16 @@ const Navbar = () => {
   return (
     <div className="navbar">
       {buttonItems.map((button) => (
-        <div className="navbutton">
-        <button
+        <button className="navbutton"
           key={button.value}
           onClick={() => navigate(`/${button.value}`)}
           disabled={button.value === currentPath}
         >
           
           <FontAwesomeIcon icon={button.icon} />
-        </button>
-        <p>{button.name}</p>  
-        </div>
         
+        <p>{button.name}</p>  
+  </button>
       ))}
     </div>
   );

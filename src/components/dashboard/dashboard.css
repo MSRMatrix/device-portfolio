@@ -9,7 +9,7 @@
 }
 
 .outlet{
-    background-color: aliceblue;
+    background-color: #242424; ;
     width: 50%;
 }
 
@@ -17,9 +17,9 @@
 @media (max-width: 600px){
 .missing-name{
     display: block;
-    min-height: 0;
 }
     .outlet{
         width: 100%;
+        min-height: inherit;
     }
 }

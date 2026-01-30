@@ -30,7 +30,12 @@
   }
 }
 
-
+/* @media (max-width: 400px){
+  html{
+    width: fit-content;
+    height: 100vh;
+  }
+} */
 
 .app{
   min-height: inherit;
