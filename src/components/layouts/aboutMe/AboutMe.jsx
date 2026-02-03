@@ -1,32 +1,38 @@
-
-
+import "./aboutMe.css"
 
 const AboutMe = () => {
 
-
+const myData = [
+    {
+    topic: "Name",
+    info: "Michael Santos Rolo"
+  },
+{
+    topic: "Geburtsdatum",
+    info: "07.10.1998"
+  },
+  {
+    topic: "Geburtsort",
+    info: "Deutschland, Quakenbrück"
+  },
+  {
+    topic: "Staatsangehörigkeit",
+    info: "Portugiesisch"
+  },
+  ]
 
 
     return(
-        <div>
-      {/* <h1>Über mich</h1>
+        <div className="my-data-container">
+      <h1>Über mich</h1>
       <div>
-        <div>
-          <h3>Name :</h3>
-          <p>Michael Santos Rolo</p>
-        </div>
-        <div>
-          <h3>Geburtsdatum :</h3>
-          <p>07.10.1998 </p>
-        </div>
-        <div>
-          <h3>Geburtsort :</h3>
-          <p>Deutschland, Quakenbrück</p>
-        </div>
-        <div>
-          <h3>Staatsangehörigkeit :</h3>
-          <p>Portugiesisch</p>
-        </div>
-      </div> */}
+       {myData.map((item, key) =>
+      <div className="my-data" key={key}>
+        <h2>{item.topic}</h2>
+        <p>{item.info}</p>
+      </div>
+      )}
+      </div> 
     </div>
     )
 }

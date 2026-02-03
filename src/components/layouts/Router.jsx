@@ -27,10 +27,6 @@ export const router = createBrowserRouter([
         element: <CareerHistory />,
       },
       {
-        path: "certificates",
-        element: <Certificates />,
-      },
-      {
         path: "projects",
         element: <Projects />,
       },

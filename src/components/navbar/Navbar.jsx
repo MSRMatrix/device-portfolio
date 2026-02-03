@@ -7,7 +7,6 @@ import {
   faStar,
   faBriefcase,
   faHouseLaptop,
-  faCertificate,
   faSitemap,
   faAddressCard
 
@@ -22,7 +21,6 @@ const Navbar = () => {
     { icon: faStar, name: "Start", value: "" },
     { icon: faUser, name: "Über mich", value: "about-me" },
     { icon: faBriefcase, name: "Karriere", value: "career-history" },
-    { icon: faCertificate, name: "Zertifikate", value: "certificates" },
     { icon: faHouseLaptop, name: "Projekte", value: "projects" },
     { icon: faSitemap, name: "Fähigkeiten", value: "skills" },
     { icon: faAddressCard, name: "Kontakt", value: "contact-me" },
