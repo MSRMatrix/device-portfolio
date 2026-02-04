@@ -4,7 +4,6 @@ import Dashboard from "../dashboard/Dashboard";
 import Hero from "./hero/Hero";
 import AboutMe from "./aboutMe/AboutMe";
 import CareerHistory from "./careerHistory/CareerHistory";
-import Certificates from "./certificates/Certificates";
 import Projects from "./projects/Projects";
 import Skills from "./skills/Skills";
 import ContactMe from "./contactMe/ContactMe";
