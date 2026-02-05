@@ -1,21 +1,21 @@
 import "./skills.css";
 
-import { skillPictures } from "../Pictures";
+import { skillList } from "../Data";
 
 const Skills = () => {
 
   return (
-    <>
-      <h1>Meine Fähigkeiten</h1>
-      <div className="skills-container">
-        {skillPictures.map((item, key) => (
-          <div className="skills" key={key}>
-            <h2>{item.name}</h2>
-            <img src={item.image} alt={item.name} />
+    <div  className="skills">
+      <h1 className="skills-title">Meine Fähigkeiten</h1>
+      <div className="skills-list">
+        {skillList.map((item, key) => (
+          <div className="skills-item" key={key}>
+            <h2 className="skills-name">{item.name}</h2>
+            <img className="skills-image" src={item.image} alt={item.name} />
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

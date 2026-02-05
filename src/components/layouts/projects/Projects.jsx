@@ -1,11 +1,11 @@
 import "./projects.css"
 
-import { projectsPictures } from "../Pictures";
+import { projectsList } from "../Data";
 
 const Projects = () => {
   return (
     <div className="project-container">
-      {projectsPictures.map((item, key) => 
+      {projectsList.map((item, key) => 
         <a href={item.href} target="_blank" className="project" key={key}>
             <h2>{item.name}</h2>
             <img src={item.pic} alt={item.name} />

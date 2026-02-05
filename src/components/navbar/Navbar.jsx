@@ -20,7 +20,7 @@ const Navbar = () => {
   const buttonItems = [
     { icon: faStar, name: "Start", value: "" },
     { icon: faUser, name: "Über mich", value: "about-me" },
-    { icon: faBriefcase, name: "Karriere", value: "career-history" },
+    { icon: faBriefcase, name: "Karriere", value: "career" },
     { icon: faHouseLaptop, name: "Projekte", value: "projects" },
     { icon: faSitemap, name: "Fähigkeiten", value: "skills" },
     { icon: faAddressCard, name: "Kontakt", value: "contact-me" },

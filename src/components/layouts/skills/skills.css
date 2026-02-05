@@ -1,8 +1,31 @@
-.skills-container{
+.skills{
     display: flex;
-    .skills{
-        img{
-            width: 200px;
-        }
-    }
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills-title{
+
+
+}
+
+.skills-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+}
+
+.skills-item{
+
+
+}
+
+.skills-name{
+
+
+}
+
+.skills-image{
+    width: 200px;
 }
