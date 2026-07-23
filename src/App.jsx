@@ -5,6 +5,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import "@/styles/globals.css"
+
 import BookLayout from "@/layouts/BookLayout";
 
 import Home from "@/pages/Home";

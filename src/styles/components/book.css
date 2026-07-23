@@ -1,0 +1,20 @@
+.book {
+    width: 90%;
+    height: 90%;
+
+    background: var(--book-cover);
+
+    padding: 20px;
+}
+
+.book-page {
+
+    background: var(--page-background);
+
+    min-height: 100%;
+height: 90%;
+    border-radius: 10px;
+
+    color: var(--text-primary);
+
+}
