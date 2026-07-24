@@ -1,8 +1,8 @@
-const Chapter = ({title, children}) => {
+const Screen = ({title, children}) => {
 
     return (
 
-        <section className="chapter">
+        <section className="screen">
 
             <h1>
                 {title}
@@ -20,4 +20,4 @@ const Chapter = ({title, children}) => {
 };
 
 
-export default Chapter;
+export default Screen;

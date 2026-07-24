@@ -1,25 +1,25 @@
 import { Outlet } from "react-router-dom";
 
-import Book from "@/components/Book";
 import Navigation from "@/components/Navigation";
+import Device from "../components/Device";
 
 
-const BookLayout = () => {
+const DeviceLayout = () => {
 
     return (
-        <div className="book-layout">
+        <div className="device-layout">
 
-            <Book>
+            <Device>
 
                 <Navigation />
 
                 <Outlet />
 
-            </Book>
+            </Device>
 
         </div>
     );
 };
 
 
-export default BookLayout;
+export default DeviceLayout;

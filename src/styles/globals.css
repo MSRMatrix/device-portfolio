@@ -1,4 +1,5 @@
 @import "./components/elements.css";
-@import "./components/book.css";
-@import "./components/bookLayout.css";
+@import "./components/device.css";
+@import "./components/deviceLayout.css";
 @import "./components/navigation.css";
+@import "./components/homeIndicator.css";

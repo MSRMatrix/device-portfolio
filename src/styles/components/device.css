@@ -1,13 +1,14 @@
-.book {
+.device {
     width: 90%;
     height: 90%;
 
     background: var(--book-cover);
 
     padding: 20px;
+    position: relative;
 }
 
-.book-page {
+.device-app {
 
     background: var(--page-background);
 

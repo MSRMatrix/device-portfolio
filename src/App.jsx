@@ -7,7 +7,7 @@ import {
 
 import "@/styles/globals.css"
 
-import BookLayout from "@/layouts/BookLayout";
+import DeviceLayout from "./layouts/DeviceLayout";
 
 import Home from "@/pages/Home";
 import About from "@/pages/About";
@@ -16,11 +16,12 @@ import Resume from "@/pages/Resume";
 import Hobbies from "@/pages/Hobbies";
 import Contact from "@/pages/Contact";
 
+
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <BookLayout />,
+      element: <DeviceLayout />,
       children: [
         {
           index: true,
