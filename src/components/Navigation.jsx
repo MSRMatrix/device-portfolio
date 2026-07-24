@@ -1,73 +1,57 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+import Icon from "./Icon";
 
-import guitar from "@/assets/images/hobbies/guitar.png"
-
+// import guitar from "@/assets/icons/hobbies/guitar.png"
 
 const Navigation = () => {
-
-   const navArray = [
+  const navArray = [
     {
-        name: "Start",
-        path: "/",
-        image: "/images/home.png"
+      name: "Über mich",
+      path: "/about",
+      icon: "faCircleInfo",
     },
     {
-        name: "Über mich",
-        path: "/about",
-        image: "/images/about.png"
+      name: "Skills",
+      path: "/skills",
+      icon: "faScrewdriverWrench",
     },
     {
-        name: "Projekte",
-        path: "/projects",
-        image: "/images/projects.png"
+      name: "Projekte",
+      path: "/projects",
+      icon: "faLaptop",
     },
     {
-        name: "Werdegang",
-        path: "/resume",
-        image: "/images/career.png"
+      name: "Werdegang",
+      path: "/resume",
+      icon: "faBriefcase",
     },
     {
-        name: "Hobbies",
-        path: "/hobbies",
-        image: guitar
+      name: "Hobbies",
+      path: "/hobbies",
+      icon: "faGuitar",
     },
     {
-        name: "Kontakt",
-        path: "/contact",
-        image: "/images/contact.png"
-    }
-];
+      name: "Kontakt",
+      path: "/contact",
+      icon: "faAt",
+    },
 
+  ];
 
-    return (
-    <nav className="book-navigation">
+  return (
+    <nav className="device-app">
+      {navArray.map((item) => (
+        <NavLink key={item.path} to={item.path} className="screen-link">
+          <div className="app-icon">
+            <Icon iconName={item.icon} />
+          </div>
 
-    {
-        navArray.map((item) => (
-
-            <NavLink
-                key={item.path}
-                to={item.path}
-                className="chapter-link"
-            >
-
-                <img 
-                    src={item.image}
-                    alt={item.name}
-                />
-
-                <span>
-                    {item.name}
-                </span>
-
-            </NavLink>
-
-        ))
-    }
-
-</nav>
-    );
+          <span>{item.name}</span>
+        </NavLink>
+      ))}
+      <Outlet />
+    </nav>
+  );
 };
-
 
 export default Navigation;

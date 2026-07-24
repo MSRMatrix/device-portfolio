@@ -5,11 +5,9 @@ const Device = ({ children }) => {
     return (
         <div className="device">
 
-            <div className="device-app">
 
                 {children}
 
-            </div>
         <HomeIndicator />
         </div>
     );

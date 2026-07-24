@@ -1,7 +1,7 @@
 const Hobbies = () => {
     return (
         <>
-            
+            Hobbies
         </>
     )
 };

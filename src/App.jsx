@@ -9,12 +9,12 @@ import "@/styles/globals.css"
 
 import DeviceLayout from "./layouts/DeviceLayout";
 
-import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Projects from "@/pages/Projects";
 import Resume from "@/pages/Resume";
 import Hobbies from "@/pages/Hobbies";
 import Contact from "@/pages/Contact";
+import Skills from "./pages/Skills";
 
 
 function App() {
@@ -24,16 +24,16 @@ function App() {
       element: <DeviceLayout />,
       children: [
         {
-          index: true,
-          element: <Home />,
-        },
-        {
           path: "about",
           element: <About />,
         },
         {
           path: "projects",
           element: <Projects />,
+        },
+        {
+          path: "skills",
+          element: <Skills />,
         },
         {
           path: "resume",
