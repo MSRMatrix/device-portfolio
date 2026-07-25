@@ -16,7 +16,7 @@ const iconMap = {
   faCircleInfo: faCircleInfo,
   faScrewdriverWrench: faScrewdriverWrench,
 };
-console.log(iconMap);
+
 const Icon = ({ iconName }) => {
   const icon = iconMap[iconName];
   if (!icon) return null;

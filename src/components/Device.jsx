@@ -1,18 +1,13 @@
 import HomeIndicator from "./HomeIndicator";
 
-const Device = ({ children }) => {
+const Device = ({ children, setOpening }) => {
+  return (
+    <div className="device">
+      {children}
 
-    return (
-        <div className="device">
-
-
-                {children}
-
-        <HomeIndicator />
-        </div>
-    );
-
+      <HomeIndicator setOpening={setOpening} />
+    </div>
+  );
 };
-
 
 export default Device;

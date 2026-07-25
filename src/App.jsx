@@ -5,7 +5,11 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import "@/styles/globals.css"
+import { useState } from "react";
+
+import { LoadingContext } from "./context/LoadingContext";
+
+import "@/styles/globals.css";
 
 import DeviceLayout from "./layouts/DeviceLayout";
 
@@ -16,8 +20,8 @@ import Hobbies from "@/pages/Hobbies";
 import Contact from "@/pages/Contact";
 import Skills from "./pages/Skills";
 
-
 function App() {
+  const [loadingContext, setLoadingContext] = useState(false);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -53,7 +57,9 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <LoadingContext.Provider value={{ loadingContext, setLoadingContext }}>
+        <RouterProvider router={router} />
+      </LoadingContext.Provider>
     </>
   );
 }

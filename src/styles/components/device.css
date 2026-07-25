@@ -29,6 +29,12 @@
   overflow-y: auto;
 }
 
+.app-in-use{
+  background: var(--screen-background);
+  height: 100%;
+}
+
+
 @media (max-width: 467px) {
   .device-app {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));

@@ -1,9 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import Icon from "./Icon";
+import { useContext } from "react";
+import { LoadingContext } from "../context/LoadingContext";
+import LoadingScreen from "./LoadingScreen";
 
-// import guitar from "@/assets/icons/hobbies/guitar.png"
-
-const Navigation = () => {
+const Navigation = ({ opening, setOpening }) => {
+  const { loadingContext } = useContext(LoadingContext);
   const navArray = [
     {
       name: "Über mich",
@@ -35,21 +37,34 @@ const Navigation = () => {
       path: "/contact",
       icon: "faAt",
     },
-
   ];
 
-  return (
-    <nav className="device-app">
-      {navArray.map((item) => (
-        <NavLink key={item.path} to={item.path} className="screen-link">
-          <div className="app-icon">
-            <Icon iconName={item.icon} />
-          </div>
+  // Style muss entfernt werden. Statt dass das Style vom Gerät hier ist, muss es in Device
 
-          <span>{item.name}</span>
-        </NavLink>
-      ))}
-      <Outlet />
+  return (
+    <nav className={loadingContext ? "loadingScreen" : !opening ? "device-app" : "app-in-use"}>
+      {!loadingContext ? (
+        <>
+          {!opening &&
+            navArray.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className="screen-link"
+                onClick={() => setOpening(true)}
+              >
+                <div className="app-icon">
+                  <Icon iconName={item.icon} />
+                </div>
+
+                <span>{item.name}</span>
+              </NavLink>
+            ))}
+          <Outlet />
+        </>
+      ) : (
+        <LoadingScreen />
+      )}
     </nav>
   );
 };
