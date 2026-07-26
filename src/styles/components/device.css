@@ -32,6 +32,8 @@
 .app-in-use{
   background: var(--screen-background);
   height: 100%;
+
+  overflow-y: auto;
 }
 
 

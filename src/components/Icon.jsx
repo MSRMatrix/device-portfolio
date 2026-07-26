@@ -5,7 +5,13 @@ import {
   faBriefcase,
   faLaptop,
   faCircleInfo,
-  faScrewdriverWrench
+  faScrewdriverWrench,
+  faEnvelope,
+  faPhone,
+  faLocationDot,
+  // faGithub,
+  // faLinkedin,
+  faGlobe,
 } from "@fortawesome/free-solid-svg-icons";
 
 const iconMap = {
@@ -15,6 +21,12 @@ const iconMap = {
   faLaptop: faLaptop,
   faCircleInfo: faCircleInfo,
   faScrewdriverWrench: faScrewdriverWrench,
+  faEnvelope: faEnvelope,
+  faPhone: faPhone,
+  faLocationDot: faLocationDot,
+  // faGithub: faGithub,
+  // faLinkedin: faLinkedin,
+  faGlobe: faGlobe,
 };
 
 const Icon = ({ iconName }) => {
