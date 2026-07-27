@@ -53,6 +53,10 @@ function App() {
         },
       ],
     },
+    {
+       path: "*",
+      element: <DeviceLayout />,
+    }
   ]);
 
   return (

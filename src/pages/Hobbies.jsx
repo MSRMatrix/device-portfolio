@@ -1,53 +1,51 @@
-// Images fehlen. Müssen noch erstellt werden
+import { hobbiesArray } from "@/data/hobbies";
+import Icon from "@/components/Icon";
+
+import guitarData from "@/data/guitar";
+import writingData from "@/data/writing";
+import sportData from "@/data/sport";
+import codingData from "@/data/coding";
+import dartsData from "@/data/darts";
+import YoutubePlayer from "@/components/YoutubePlayer";
 
 const Hobbies = () => {
-  const hobbiesArray = [
-    {
-      id: 1,
-      name: "Gitarre spielen",
-    //   image: guitar,
-      description: "",
-      type: "music",
-    },
-    {
-      id: 2,
-      name: "Geschichten schreiben",
-    //   image: writing,
-      description: "",
-      type: "writing",
-    },
-    {
-      id: 3,
-      name: "Sport",
-    //   image: sport,
-      description: "",
-      type: "sport",
-    },
-    {
-      id: 4,
-      name: "Programmieren",
-    //   image: coding,
-      description: "",
-      type: "coding",
-    },
-    {
-      id: 5,
-      name: "Darts",
-    //   image: darts,
-      description: "",
-      type: "game",
-    },
-  ];
-  return (<>
-  {hobbiesArray.map((section) => (
-    <section id={section.id}>
-        <h2>{section.name}</h2>
-        {/* <img src={section.image} alt={section.name} /> */}
-        <p>{section.description}</p>
-        {/* Irgendwas mit Type */}
+  const hobbyContent = {
+    guitar: guitarData,
+    writing: writingData,
+    sport: sportData,
+    coding: codingData,
+    darts: dartsData,
+  };
+
+  return (
+    <section className="hobbies">
+      {hobbiesArray.map((hobby) => {
+        const data = hobbyContent[hobby.key];
+
+        return (
+          <article key={hobby.id} className="hobby-page">
+            <Icon iconName={hobby.icon} />
+
+            <h1>{hobby.name}</h1>
+
+            <p>{hobby.description}</p>
+
+            {data.songs && (
+              <div>
+                {data.songs.map((song) => (
+                  <div key={song.id}>
+                    <h2>{song.title}</h2>
+                    <p>{song.artist}</p>
+                    <YoutubePlayer videoId={song.youtube}/>
+                  </div>
+                ))}
+              </div>
+            )}
+          </article>
+        );
+      })}
     </section>
-  ))}
-  </>);
+  );
 };
 
 export default Hobbies;

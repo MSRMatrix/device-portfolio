@@ -3,3 +3,5 @@
 @import "./components/deviceLayout.css";
 @import "./components/navigation.css";
 @import "./components/homeIndicator.css";
+
+@import "./pages/hobbies.css"

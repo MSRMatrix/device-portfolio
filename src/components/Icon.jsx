@@ -12,6 +12,11 @@ import {
   // faGithub,
   // faLinkedin,
   faGlobe,
+  faPen,
+  faDumbbell,
+  faCode,
+  faBullseye
+
 } from "@fortawesome/free-solid-svg-icons";
 
 const iconMap = {
@@ -27,6 +32,10 @@ const iconMap = {
   // faGithub: faGithub,
   // faLinkedin: faLinkedin,
   faGlobe: faGlobe,
+  faPen : faPen,
+faDumbbell: faDumbbell,  
+faCode: faCode,  
+faBullseye: faBullseye,  
 };
 
 const Icon = ({ iconName }) => {
