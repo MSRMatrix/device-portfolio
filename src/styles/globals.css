@@ -4,4 +4,9 @@
 @import "./components/navigation.css";
 @import "./components/homeIndicator.css";
 
-@import "./pages/hobbies.css"
+@import "./pages/hobbies.css";
+@import "./pages/about.css";
+@import "./pages/skills.css";
+@import "./pages/projects.css";
+@import "./pages/resume.css";
+@import "./pages/contact.css";

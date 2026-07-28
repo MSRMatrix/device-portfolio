@@ -9,25 +9,30 @@
     --device-edge: #AFAFAF;
     --device-detail: #FFFFFF;
 
+
     /* Bildschirm */
     --screen-background: #F8F9FA;
     --screen-surface: #FFFFFF;
+
 
     /* Text */
     --text-primary: #1C1C1E;
     --text-secondary: #636366;
 
+
     /* Akzente */
     --accent: #007AFF;
     --accent-hover: #005FCC;
+
 
     /* Icons */
     --icon-background: #E5E5EA;
     --icon-color: #1C1C1E;
 
+
     /* Schatten */
     --device-shadow: rgba(0, 0, 0, 0.25);
-    --screen-shadow: rgba(0, 0, 0, 0.10);
+    --screen-shadow: rgba(0, 0, 0, 0.12);
 
 }
 
@@ -43,24 +48,29 @@
     --device-edge: #000000;
     --device-detail: #2C2C2E;
 
+
     /* Bildschirm */
     --screen-background: #000000;
     --screen-surface: #1C1C1E;
+
 
     /* Text */
     --text-primary: #F5F5F7;
     --text-secondary: #A1A1A6;
 
+
     /* Akzente */
     --accent: #0A84FF;
     --accent-hover: #409CFF;
+
 
     /* Icons */
     --icon-background: #2C2C2E;
     --icon-color: #F5F5F7;
 
+
     /* Schatten */
-    --device-shadow: rgba(0, 0, 0, 0.70);
-    --screen-shadow: rgba(0, 0, 0, 0.50);
+    --device-shadow: rgba(0, 0, 0, 0.75);
+    --screen-shadow: rgba(0, 0, 0, 0.60);
 
 }

@@ -1,48 +1,48 @@
 const Resume = () => {
   const resumeArray = [
-    // {
-    //   info: "Berufsvorbereitungsjahr Holztechnik",
-    //   date: "2015-2016",
-    //   about:
-    //     "Während des Berufsvorbereitungsjahres in der Holztechnik wurde ein grundlegendes Verständnis für die Arbeit mit Holz vermittelt. Dies umfasste theoretische und praktische Kenntnisse in der Holzbearbeitung, die Bedienung von Maschinen und Werkzeugen sowie die Erstellung und Umsetzung von technischen Zeichnungen.",
-    // },
-    // {
-    //   info: "Bildungswerk der Niedersächsischen Wirtschaft gGmbH ",
-    //   date: "2017-2018",
-    //   about:
-    //     "Bei der Bildungswerk der Niedersächsischen Wirtschaft gGmbH wurde eine umfassende berufliche Weiterbildung absolviert. Der Fokus lag auf der beruflichen Integration und der Entwicklung von Schlüsselkompetenzen, wie z.B. Teamarbeit, Projektmanagement und Kommunikation.",
-    // },
     {
+      id: 1,
       info: "Autohaus Trias GmbH",
+      role: "Automobilbranche",
       date: "08.2018 - 01.2023",
       about:
-        "Während der Tätigkeit bei der Autohaus Trias GmbH wurden umfangreiche Erfahrungen in der Automobilbranche gesammelt. Verantwortlichkeiten umfassten den Kundenservice, die Fahrzeugwartung und -reparatur sowie die Koordination von Werkstattterminen.",
+        "Während meiner Tätigkeit bei der Autohaus Trias GmbH konnte ich umfangreiche Erfahrungen in der Automobilbranche sammeln. Zu meinen Aufgaben gehörten Kundenservice, Fahrzeugwartung, Reparaturen und die Organisation von Werkstattabläufen.",
     },
+
     {
+      id: 2,
       info: "DCI Weiterbildung zum Web- und Softwareentwickler",
+      role: "IT-Weiterbildung",
       date: "05.2023 - 07.2024",
       about:
-        "Die Weiterbildung bei DCI konzentriert sich auf die Ausbildung zum Web- und Softwareentwickler. Der Lehrplan umfasst eine Vielzahl von Programmiersprachen und Technologien, darunter HTML, CSS, JavaScript, React, Node.js und Datenbankmanagement.",
+        "Während der Weiterbildung lag der Schwerpunkt auf moderner Webentwicklung. Dabei wurden unter anderem HTML, CSS, JavaScript, React, Node.js sowie Datenbanken und Backend-Entwicklung behandelt.",
     },
-     {
+
+    {
+      id: 3,
       info: "GIGANT GmbH",
+      role: "Monteur von Achssystemen",
       date: "02.2026 - jetzt",
       about:
         "Montage und Zusammenbau von Achssystemen nach technischen Vorgaben. Dabei gehören Qualitätskontrolle, präzises Arbeiten und der sichere Umgang mit technischen Komponenten zu meinen täglichen Aufgaben.",
     },
   ];
 
-  return (<>
-  
-  {resumeArray.map((section) => (
+  return (
+    <section className="resume-app">
+      {resumeArray.map((section) => (
+        <article key={section.id} className="resume-item">
+          <h2>{section.info}</h2>
 
-    <section>
-        <h2>{section.info}</h2>
-        <p>{section.date}</p>
-        <p>{section.about}</p>
+          <span className="role">{section.role}</span>
+
+          <p className="date">{section.date}</p>
+
+          <p>{section.about}</p>
+        </article>
+      ))}
     </section>
-  ))}
-  </>);
+  );
 };
 
 export default Resume;

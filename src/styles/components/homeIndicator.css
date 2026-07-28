@@ -1,20 +1,23 @@
 @import "../colors.css";
 
-.home-indicator {
+  .home-indicator {
 
     position: absolute;
 
-    bottom: 0px;
+    bottom: 18px;
     left: 50%;
 
     transform: translateX(-50%);
 
-    width: 80px;
-    height: 20px;
+    width: 90px;
+    height: 5px;
+
+    background: white;
+
+    opacity: .8;
 
     border-radius: 10px;
 
-    background: black;
-    cursor: pointer;
+    z-index: 10;
 
-}
+  }

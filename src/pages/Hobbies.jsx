@@ -24,19 +24,23 @@ const Hobbies = () => {
 
         return (
           <article key={hobby.id} className="hobby-page">
-            <Icon iconName={hobby.icon} />
+            <div className="hobby-header">
+              <Icon iconName={hobby.icon} />
 
-            <h1>{hobby.name}</h1>
+              <h1>{hobby.name}</h1>
+            </div>
 
             <p>{hobby.description}</p>
 
-            {data.songs && (
-              <div>
+            {data?.songs && (
+              <div className="songs">
                 {data.songs.map((song) => (
-                  <div key={song.id}>
+                  <div key={song.id} className="song">
                     <h2>{song.title}</h2>
+
                     <p>{song.artist}</p>
-                    <YoutubePlayer videoId={song.youtube}/>
+
+                    <YoutubePlayer videoId={song.youtube} />
                   </div>
                 ))}
               </div>

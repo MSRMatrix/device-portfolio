@@ -1,0 +1,82 @@
+@import "../colors.css";
+
+.projects-app {
+  width: 100%;
+  height: 100%;
+
+  padding: 20px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+  overflow-y: auto;
+
+  .project-card {
+    background: var(--surface);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 25px var(--shadow);
+
+    display: flex;
+
+    flex-direction: column;
+
+    .project-image {
+      width: 100%;
+      height: 180px;
+
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+      }
+    }
+
+    .project-content {
+      padding: 15px;
+
+      h2 {
+        margin: 0;
+
+        color: var(--text-primary);
+      }
+
+      .project-type {
+        color: var(--accent);
+
+        font-size: 0.9rem;
+      }
+
+      p {
+        color: var(--text-secondary);
+      }
+
+      .technologies {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 8px;
+
+        small {
+          background: var(--accent);
+
+          color: white;
+
+          padding: 5px 10px;
+
+          border-radius: 20px;
+        }
+      }
+    }
+  }
+}
