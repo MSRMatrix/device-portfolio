@@ -3,6 +3,8 @@
 @import "./components/deviceLayout.css";
 @import "./components/navigation.css";
 @import "./components/homeIndicator.css";
+@import "./components/camera.css";
+@import "./components/statusbar.css";
 
 @import "./pages/hobbies.css";
 @import "./pages/about.css";
