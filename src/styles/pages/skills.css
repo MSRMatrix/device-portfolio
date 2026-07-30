@@ -57,3 +57,11 @@
     color: var(--text-secondary);
   }
 }
+
+
+@media (max-width: 800px) {
+  .skills-app {
+
+  grid-template-columns: repeat(1, 1fr); 
+}
+}

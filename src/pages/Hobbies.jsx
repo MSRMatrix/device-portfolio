@@ -40,7 +40,7 @@ const Hobbies = () => {
 
                     <p>{song.artist}</p>
 
-                    <YoutubePlayer videoId={song.youtube} />
+                    <YoutubePlayer videoId={song.youtube, song.id} />
                   </div>
                 ))}
               </div>

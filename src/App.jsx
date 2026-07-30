@@ -19,9 +19,11 @@ import Resume from "@/pages/Resume";
 import Hobbies from "@/pages/Hobbies";
 import Contact from "@/pages/Contact";
 import Skills from "./pages/Skills";
+import { MusicContext } from "./context/MusicContext";
 
 function App() {
   const [loadingContext, setLoadingContext] = useState(false);
+  const [musicContext, setMusicContext] = useState(null);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -61,9 +63,11 @@ function App() {
 
   return (
     <>
+    <MusicContext.Provider value={{musicContext, setMusicContext}}>
       <LoadingContext.Provider value={{ loadingContext, setLoadingContext }}>
         <RouterProvider router={router} />
       </LoadingContext.Provider>
+      </MusicContext.Provider>
     </>
   );
 }

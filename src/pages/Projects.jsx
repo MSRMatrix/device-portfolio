@@ -43,7 +43,7 @@ const Projects = () => {
       description:
         "Eine Anwendung zur Verwaltung von Lagerbeständen und Bauteilen mit Benutzerverwaltung.",
 
-      technologies: ["React", "Node.js", "Express", "MongoDB"],
+      technologies: ["Mern-Stack", "JavaScript"],
 
       features: [
         "Benutzerkonten",
@@ -98,7 +98,7 @@ const Projects = () => {
       description:
         "Eine Wetteranwendung mit aktuellen Wetterinformationen über eine API.",
 
-      technologies: ["React", "JavaScript", "API", "CSS"],
+      technologies: ["React", "JavaScript", "API"],
 
       features: ["Wettersuche", "API-Anbindung", "Dynamische Daten"],
 
@@ -199,6 +199,7 @@ const Projects = () => {
   ];
 
   return (
+    // Link fehlt
     <section className="projects-app">
       {projectsArray.map((project) => (
         <article key={project.id} className="project-card">

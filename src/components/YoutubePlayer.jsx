@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import YouTube from "react-youtube";
+import { MusicContext } from "../context/MusicContext";
 
-const YoutubePlayer = ({ videoId }) => {
+const YoutubePlayer = ({ videoId, id }) => {
+  const {musicContext, setMusicContext} = useContext(MusicContext)
   const playerRef = useRef(null);
 
   const [playing, setPlaying] = useState(false);
@@ -57,15 +59,14 @@ const YoutubePlayer = ({ videoId }) => {
 
     return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
   };
-
+// Klick Id
   return (
     <div className="music-player">
       <YouTube videoId={videoId} opts={opts} onReady={onReady} />
 
       <div className="music-controls">
-        <button onClick={play}>▶</button>
-
-        <button onClick={pause}>⏸</button>
+        <button onClick={play}>{!playing ? "▶" : "⏸"}</button>
+        <button onClick={pause}></button>
       </div>
 
       <div className="music-progress">

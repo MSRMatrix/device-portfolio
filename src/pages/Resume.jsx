@@ -1,8 +1,14 @@
+import { useState } from "react";
+
 const Resume = () => {
+  
+const [active, setActive] = useState(null);
+
   const resumeArray = [
     {
       id: 1,
       info: "Autohaus Trias GmbH",
+      icon:"🚗",
       role: "Automobilbranche",
       date: "08.2018 - 01.2023",
       about:
@@ -12,6 +18,7 @@ const Resume = () => {
     {
       id: 2,
       info: "DCI Weiterbildung zum Web- und Softwareentwickler",
+      icon:"💻",
       role: "IT-Weiterbildung",
       date: "05.2023 - 07.2024",
       about:
@@ -21,6 +28,7 @@ const Resume = () => {
     {
       id: 3,
       info: "GIGANT GmbH",
+      icon:"⚙️",
       role: "Monteur von Achssystemen",
       date: "02.2026 - jetzt",
       about:
@@ -28,21 +36,61 @@ const Resume = () => {
     },
   ];
 
-  return (
-    <section className="resume-app">
-      {resumeArray.map((section) => (
-        <article key={section.id} className="resume-item">
-          <h2>{section.info}</h2>
+return (
+  <section className="resume-app">
 
-          <span className="role">{section.role}</span>
+    {resumeArray.map((section) => (
 
-          <p className="date">{section.date}</p>
+      <article 
+        key={section.id} 
+        className={`resume-item ${active === section.id ? "active" : ""}`}
+      >
 
-          <p>{section.about}</p>
-        </article>
-      ))}
-    </section>
-  );
+        <div className="resume-header">
+
+          <div className="resume-icon">
+            {section.icon}
+          </div>
+
+          <div>
+            <h2>{section.info}</h2>
+
+            <span className="role">
+              {section.role}
+            </span>
+
+            <p className="date">
+              {section.date}
+            </p>
+          </div>
+
+        </div>
+
+
+        <button
+          onClick={() => setActive(
+            active === section.id ? null : section.id
+          )}
+        >
+          {active === section.id 
+            ? "Weniger anzeigen"
+            : "Mehr erfahren"
+          }
+        </button>
+
+
+        {active === section.id && (
+          <p className="resume-description">
+            {section.about}
+          </p>
+        )}
+
+      </article>
+
+    ))}
+
+  </section>
+);
 };
 
 export default Resume;
