@@ -1,10 +1,10 @@
 const Camera = () => {
-    return (
-        <>
-            {/* Style muss überprüft werden weil diese Komponente gar nicht verwendet wird */}
-      <div className="camera"></div>
-        </>
-    )
+  return (
+    // Kamera ist zu niedrig oder Apps zu hoch
+    <div className="camera">
+      <div className="camera-lens"></div>
+    </div>
+  );
 };
 
 export default Camera;

@@ -39,27 +39,7 @@
   
   position: relative;
 
-  /* Punch Hole Kamera */
 
-  &::before {
-    content: "";
-
-    position: absolute;
-
-    top: 15px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 18px;
-    height: 18px;
-
-    background: #000;
-
-    border-radius: 50%;
-
-    z-index: 5;
-  }
 }
 
 /* Wenn eine App geöffnet ist */
@@ -70,7 +50,6 @@
   height: 100%;
 
   overflow-y: auto;
-
   border-radius: 35px;
 }
 
@@ -91,4 +70,15 @@
 
 .screen{
   height: 90%;
+}
+
+.resume-app::-webkit-scrollbar,
+.projects-app::-webkit-scrollbar,
+.about-app::-webkit-scrollbar,
+.contact-app::-webkit-scrollbar,
+.skills-app::-webkit-scrollbar,
+.hobbies::-webkit-scrollbar,
+.app-in-use::-webkit-scrollbar
+{
+    display: none; 
 }

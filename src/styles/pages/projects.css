@@ -149,71 +149,45 @@
   }
 }
 
-
 @media (max-width: 400px) {
-
   .projects-app {
+    padding: 12px;
 
-    padding:12px;
-
-    gap:12px;
-
+    gap: 12px;
   }
-
 
   .project-card {
-
-    border-radius:18px;
-
+    border-radius: 18px;
 
     .project-image {
-
-      height:120px;
-
+      height: 120px;
     }
-
 
     .project-content {
-
-      padding:12px;
-
+      padding: 12px;
 
       h2 {
-
-        font-size:1rem;
-
+        font-size: 1rem;
       }
-
 
       p {
+        font-size: 0.8rem;
 
-        font-size:0.8rem;
-
-        display:-webkit-box;
-        -webkit-line-clamp:3;
-        -webkit-box-orient:vertical;
-        overflow:hidden;
-
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
       }
-
 
       .technologies {
-
-        gap:5px;
-
+        gap: 5px;
 
         small {
+          font-size: 0.65rem;
 
-          font-size:0.65rem;
-
-          padding:3px 7px;
-
+          padding: 3px 7px;
         }
-
       }
-
     }
-
   }
-
 }

@@ -1,4 +1,81 @@
-.statusbar{
-    display: flex;
-    justify-content: space-around;
+.statusbar {
+  height: 32px;
+
+  padding: 0 15px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  color: var(--text-primary);
+
+  font-size: 0.8rem;
+
+  user-select: none;
+}
+
+.status-icons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.battery {
+  width: 24px;
+
+  height: 12px;
+
+  border: 1.5px solid var(--text-primary);
+
+  border-radius: 3px;
+
+  padding: 1px;
+
+  position: relative;
+}
+
+.battery::after {
+  content: "";
+
+  position: absolute;
+
+  right: -3px;
+  top: 3px;
+
+  width: 2px;
+  height: 5px;
+
+  background: var(--text-primary);
+
+  border-radius: 2px;
+}
+
+.battery-level {
+  height: 100%;
+
+  border-radius: 2px;
+
+  transition: 0.3s;
+}
+
+.theme-button {
+  background: none;
+
+  border: none;
+
+  color: var(--text-primary);
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.theme-button:hover {
+  transform: rotate(20deg);
 }

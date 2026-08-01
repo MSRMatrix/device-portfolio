@@ -1,74 +1,256 @@
 @import "../colors.css";
 
 .resume-app {
+  width: 100%;
+  height: 100%;
 
-    padding:15px;
+  padding: 15px;
 
-    overflow-y:auto;
-
-
+  overflow-y: auto;
 }
-
 
 .resume-item {
+  background: var(--screen-surface);
 
-    background:var(--screen-surface);
+  border-radius: 25px;
 
-    border-radius:25px;
+  padding: 20px;
 
-    padding:20px;
+  margin-bottom: 20px;
 
-    margin-bottom:20px;
+  box-shadow: 0 10px 25px var(--screen-shadow);
 
+  border: 1px solid transparent;
 
-    box-shadow:
-    0 10px 25px var(--screen-shadow);
+  transition: 0.3s ease;
 
+  &:hover {
+    border-color: var(--accent);
+  }
 
-    position:relative;
-
+  &.active {
+    border-color: var(--accent);
+  }
 }
 
+.resume-header {
+  display: flex;
+
+  gap: 15px;
+
+  align-items: center;
+}
 
 .resume-icon {
+  min-width: 55px;
 
-    width:50px;
-    height:50px;
+  height: 55px;
 
-    display:flex;
+  display: flex;
 
-    align-items:center;
-    justify-content:center;
+  align-items: center;
 
-    font-size:25px;
+  justify-content: center;
 
-    border-radius:15px;
+  font-size: 28px;
 
-    background:var(--icon-background);
+  border-radius: 18px;
 
+  background: var(--icon-background);
 }
 
+.resume-item h2  {
+    margin: 0;
 
-.resume-item h2 {
-
-    font-size:1.1rem;
-
-    margin-top:15px;
-
+    color: var(--text-primary);
+    font-size: 1.1rem;
 }
-
 
 .role {
+  color: var(--accent);
 
-    color:var(--accent);
+  font-weight: 600;
+}
+
+.date {
+  margin: 5px 0 0;
+
+  font-size: 0.8rem;
+
+  color: var(--text-secondary);
+}
+
+.resume-item button {
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  background: var(--accent);
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+
+  &:hover {
+    background: var(--accent-hover);
+  }
+}
+
+.resume-description {
+  margin-top: 20px;
+
+  color: var(--text-primary);
+
+  line-height: 1.6;
+
+  animation: openResume 0.3s ease;
+}
+
+@keyframes openResume {
+  from {
+    opacity: 0;
+
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+@media (max-width: 600px) {
+
+    .resume-app {
+
+        padding:10px;
+
+    }
+
+
+    .resume-item {
+
+        padding:15px;
+
+        margin-bottom:15px;
+
+        border-radius:20px;
+
+    }
+
+
+    .resume-header {
+
+        gap:10px;
+
+    }
+
+
+    .resume-icon {
+
+        min-width:40px;
+
+        height:40px;
+
+        font-size:20px;
+
+        border-radius:12px;
+
+    }
+
+
+    .resume-item h2 {
+
+        font-size:0.95rem;
+
+    }
+
+
+    .role {
+
+        font-size:0.8rem;
+
+    }
+
+
+    .date {
+
+        font-size:0.7rem;
+
+    }
+
+
+    .resume-item button {
+
+        padding:10px;
+
+        font-size:0.8rem;
+
+        margin-top:15px;
+
+    }
+
+
+    .resume-description {
+
+        font-size:0.8rem;
+
+        line-height:1.4;
+
+    }
 
 }
 
+@media (max-width: 350px) {
 
-.date {
+    .resume-item {
 
-    font-size:0.8rem;
+        padding:12px;
 
-    color:var(--text-secondary);
+    }
+
+
+    .resume-header {
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+
+    .resume-icon {
+
+        width:35px;
+
+        height:35px;
+
+        font-size:18px;
+
+    }
+
+
+    .resume-item h2 {
+
+        font-size:0.85rem;
+
+    }
+
+
+    .resume-description {
+
+        font-size:0.75rem;
+
+    }
 
 }

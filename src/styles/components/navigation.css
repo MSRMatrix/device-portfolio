@@ -1,5 +1,13 @@
 @import "../colors.css";
 
+.device-app,
+.app-in-use,
+.loadingScreen {
+
+    position:relative;
+
+}
+
 .screen-link {
   display: flex;
 

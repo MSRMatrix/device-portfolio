@@ -2,11 +2,10 @@ import Camera from "./Camera";
 import HomeIndicator from "./HomeIndicator";
 import Staturbar from "./Statusbar";
 
-const Device = ({ children, setOpening }) => {
+const Device = ({ children, setOpening, theme, setTheme}) => {
   return (
     <div className="device">
-      <Camera />
-      <Staturbar />
+      <Staturbar theme={theme} setTheme={setTheme}/>
 
       <div className="screen">{children}</div>
       

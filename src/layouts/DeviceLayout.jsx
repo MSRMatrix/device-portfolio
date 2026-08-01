@@ -7,16 +7,17 @@ import { LoadingContext } from "../context/LoadingContext";
 
 const DeviceLayout = () => {
   const [opening, setOpening] = useState(false);
+    const [theme, setTheme] = useState("light");
   return (
-    
+    <div style={{height: "100%"}} className={theme}>
      <div className="device-layout">
-      <Device setOpening={setOpening}>
+      <Device setOpening={setOpening} theme={theme} setTheme={setTheme}>
 
         <Navigation opening={opening} setOpening={setOpening}/>
         
       </Device>
     </div>
-
+</div>
     
    
   );
