@@ -7,7 +7,7 @@ import { LoadingContext } from "../context/LoadingContext";
 
 const DeviceLayout = () => {
   const [opening, setOpening] = useState(false);
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState("dark");
   return (
     <div style={{height: "100%"}} className={theme}>
      <div className="device-layout">

@@ -3,9 +3,7 @@
 .device-app,
 .app-in-use,
 .loadingScreen {
-
-    position:relative;
-
+  position: relative;
 }
 
 .screen-link {
@@ -23,48 +21,86 @@
 
   color: var(--text-primary);
 
+  transition: 0.25s;
+
   .app-icon {
     width: 80px;
+
     height: 80px;
-    
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
-    background: white;
+    background: var(--icon-background);
 
-    border-radius: 100%;
+    color: var(--icon-color);
+
+    border-radius: 50%;
 
     box-shadow: 0 8px 15px var(--screen-shadow);
+
+    transition: 0.25s;
 
     svg {
       font-size: 35px;
 
       color: var(--accent);
+
+      transition: 0.25s;
     }
   }
 
   span {
+    color: var(--text-primary);
+
     text-align: center;
 
     font-size: 14px;
   }
 }
 
+.screen-link:hover .app-icon {
+  transform: translateY(-3px) scale(1.05);
+
+  background: var(--accent);
+}
+
+.screen-link:hover svg {
+  color: white;
+}
+
+.screen-link:hover span {
+  color: var(--accent);
+}
+
+.screen-link.active .app-icon {
+  background: var(--accent);
+}
+
+.screen-link.active svg {
+  color: white;
+}
+
+.screen-link.active span {
+  color: var(--accent);
+
+  font-weight: 600;
+}
+
 @media (max-width: 466px) {
   .screen-link {
-  .app-icon {
-    width: 40px;
-    height: 40px;
-    
+    .app-icon {
+      width: 40px;
+      height: 40px;
 
-    svg {
-      font-size: 20px;
+      svg {
+        font-size: 20px;
 
-      color: var(--accent);
+        color: var(--accent);
+      }
     }
-  }
   }
 }
