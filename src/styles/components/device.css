@@ -23,96 +23,41 @@
   transition: 0.4s ease;
 }
 
-
-
-
-
-
 .device::before {
+  content: "";
 
-    content:"";
+  position: absolute;
 
-    position:absolute;
+  inset: 5px;
 
-    inset:5px;
+  border-radius: 40px;
 
+  border: 2px solid var(--device-detail);
 
-    border-radius:40px;
+  opacity: 0.6;
 
-
-    border:2px solid var(--device-detail);
-
-
-    opacity:.6;
-
-
-    pointer-events:none;
-
+  pointer-events: none;
 }
-
-
-
 
 .device::after {
+  content: "";
 
-    content:"";
+  position: absolute;
 
-    position:absolute;
+  top: 0;
+  left: 20%;
 
+  width: 60%;
+  height: 40%;
 
-    top:0;
-    left:20%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.25), transparent);
 
+  border-radius: 50%;
 
-    width:60%;
-    height:40%;
+  filter: blur(20px);
 
-
-    background:
-        linear-gradient(
-            120deg,
-            rgba(255,255,255,.25),
-            transparent
-        );
-
-
-    border-radius:50%;
-
-
-    filter:blur(20px);
-
-
-    pointer-events:none;
-
+  pointer-events: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Bildschirm */
 
