@@ -1,9 +1,7 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import YouTube from "react-youtube";
-import { MusicContext } from "../context/MusicContext";
 
-const YoutubePlayer = ({ videoId, id }) => {
-  const {musicContext, setMusicContext} = useContext(MusicContext)
+const YoutubePlayer = ({ song }) => {
   const playerRef = useRef(null);
 
   const [playing, setPlaying] = useState(false);
@@ -11,20 +9,6 @@ const YoutubePlayer = ({ videoId, id }) => {
   const [currentTime, setCurrentTime] = useState(0);
 
   const [duration, setDuration] = useState(0);
-
-  const opts = {
-    height: "0",
-    width: "0",
-    playerVars: {
-      autoplay: 0,
-    },
-  };
-
-  const onReady = (event) => {
-    playerRef.current = event.target;
-
-    setDuration(event.target.getDuration());
-  };
 
   const play = () => {
     if (playerRef.current) {
@@ -42,6 +26,14 @@ const YoutubePlayer = ({ videoId, id }) => {
     }
   };
 
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+
+    const remainingSeconds = Math.floor(seconds % 60);
+
+    return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (playerRef.current && playing) {
@@ -52,22 +44,24 @@ const YoutubePlayer = ({ videoId, id }) => {
     return () => clearInterval(interval);
   }, [playing]);
 
-  const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60);
-
-    const remainingSeconds = Math.floor(seconds % 60);
-
-    return `${minutes}:${remainingSeconds.toString().padStart(2, "0")}`;
-  };
-// Klick Id
   return (
     <div className="music-player">
-      <YouTube videoId={videoId} opts={opts} onReady={onReady} />
+      <YouTube
+        videoId={song.youtube}
+        opts={{
+          height: "0",
+          width: "0",
+        }}
+        onReady={(event) => {
+          playerRef.current = event.target;
 
-      <div className="music-controls">
-        <button onClick={play}>{!playing ? "▶" : "⏸"}</button>
-        <button onClick={pause}></button>
-      </div>
+          setDuration(event.target.getDuration());
+        }}
+      />
+
+      <h3>{song.title}</h3>
+
+      <button onClick={playing ? pause : play}>{playing ? "⏸" : "▶"}</button>
 
       <div className="music-progress">
         <div
@@ -76,15 +70,16 @@ const YoutubePlayer = ({ videoId, id }) => {
             width: `${duration ? (currentTime / duration) * 100 : 0}%`,
           }}
         />
-      </div>
 
-      <div className="music-time">
-        {formatTime(currentTime)}
-        {" / "}
-        {formatTime(duration)}
+        <div className="music-time">
+          {formatTime(currentTime)}
+
+          {" / "}
+
+          {formatTime(duration)}
+        </div>
       </div>
     </div>
   );
 };
-
 export default YoutubePlayer;

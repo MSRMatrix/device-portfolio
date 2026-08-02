@@ -8,7 +8,11 @@ import codingData from "@/data/coding";
 import dartsData from "@/data/darts";
 import YoutubePlayer from "@/components/YoutubePlayer";
 
+import { useState } from "react";
+
 const Hobbies = () => {
+  const [activeSong, setActiveSong] = useState(null);
+
   const hobbyContent = {
     guitar: guitarData,
     writing: writingData,
@@ -35,12 +39,19 @@ const Hobbies = () => {
             {data?.songs && (
               <div className="songs">
                 {data.songs.map((song) => (
-                  <div key={song.id} className="song">
+                  <div onClick={() => setActiveSong(song)}
+                    key={song.id}
+                    className={`song ${
+                      activeSong?.id === song.id ? "active" : ""
+                    }`}
+                  >
                     <h2>{song.title}</h2>
 
                     <p>{song.artist}</p>
 
-                    <YoutubePlayer videoId={song.youtube, song.id} />
+                    {activeSong?.id === song.id && (
+                      <YoutubePlayer song={song} />
+                    )}
                   </div>
                 ))}
               </div>
