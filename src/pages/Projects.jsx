@@ -1,35 +1,35 @@
-import acoustiFlow from "@/assets/images/projects/walkman.jpg";
+// import acoustiFlow from "@/assets/images/projects/walkman.jpg";
 import storageList from "@/assets/images/projects/parts.png";
 import cashStuffing from "@/assets/images/projects/cash-stuffing.png";
 import weatherApp from "@/assets/images/projects/weather-app.png";
 import pokePalCodex from "@/assets/images/projects/pikachu-1.png";
-// import todoWave from "@/assets/images/projects/todo-list.png";
+import todoWave from "@/assets/images/projects/todo-list.png";
 import visualNovel from "@/assets/images/projects/visual-novel.png";
 
 const Projects = () => {
   const projectsArray = [
-    {
-      id: 1,
+    // {
+    //   id: 1,
 
-      name: "AcoustiFlow",
+    //   name: "AcoustiFlow",
 
-      image: acoustiFlow,
+    //   image: acoustiFlow,
 
-      type: "Web App",
+    //   type: "Web App",
 
-      description:
-        "Eine Anwendung rund um Musik, mit der Songs organisiert und verwaltet werden können.",
+    //   description:
+    //     "Eine Anwendung rund um Musik, mit der Songs organisiert und verwaltet werden können.",
 
-      technologies: ["React", "JavaScript", "CSS"],
+    //   technologies: ["React", "JavaScript", "CSS"],
 
-      features: ["Musikverwaltung", "Modernes Interface", "Responsive Design"],
+    //   features: ["Musikverwaltung", "Modernes Interface", "Responsive Design"],
 
-      status: "In Entwicklung",
+    //   status: "In Entwicklung",
 
-      github: "",
+    //   github: "",
 
-      live: "",
-    },
+    //   link: "",
+    // },
 
     {
       id: 2,
@@ -56,7 +56,7 @@ const Projects = () => {
 
       github: "",
 
-      live: "",
+      link: "https://storage-list-frontend.vercel.app/",
     },
 
     {
@@ -83,7 +83,7 @@ const Projects = () => {
 
       github: "",
 
-      live: "",
+      link: "https://stuffit-x83e.onrender.com/",
     },
 
     {
@@ -106,7 +106,7 @@ const Projects = () => {
 
       github: "",
 
-      live: "",
+      link: "https://weatherapp-amber-six.vercel.app/",
     },
 
     {
@@ -133,42 +133,30 @@ const Projects = () => {
 
       github: "",
 
-      live: "",
+      link: "https://pokepal-codex.vercel.app/",
     },
+    {
+      id: 6,
 
-    /*
-  {
-    id: 6,
+      name: "Todo Wave",
 
-    name: "Todo Wave",
+      image: todoWave,
 
-    image: todoWave,
+      type: "Productivity App",
 
-    type: "Productivity App",
+      description:
+        "Eine moderne To-do-Anwendung zur Organisation von Aufgaben.",
 
-    description:
-      "Eine moderne To-do-Anwendung zur Organisation von Aufgaben.",
+      technologies: ["React", "JavaScript", "CSS"],
 
-    technologies: [
-      "React",
-      "JavaScript",
-      "CSS",
-    ],
+      features: ["Aufgaben erstellen", "Aufgaben verwalten", "Status ändern"],
 
-    features: [
-      "Aufgaben erstellen",
-      "Aufgaben verwalten",
-      "Status ändern",
-    ],
+      status: "Geplant",
 
-    status: "Geplant",
+      github: "",
 
-    github: "",
-
-    live: "",
-
-  },
-  */
+      link: "https://todo-frontend-five-eta.vercel.app/",
+    },
 
     {
       id: 7,
@@ -194,7 +182,7 @@ const Projects = () => {
 
       github: "",
 
-      live: "",
+      link: "https://visual-novel-pi.vercel.app/",
     },
   ];
 
@@ -202,7 +190,13 @@ const Projects = () => {
     // Link fehlt
     <section className="projects-app">
       {projectsArray.map((project) => (
-        <article key={project.id} className="project-card">
+        <a
+          key={project.id}
+          className="project-card"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={project.link}
+        >
           <div className="project-image">
             <img src={project.image} alt={project.name} />
           </div>
@@ -220,7 +214,7 @@ const Projects = () => {
               ))}
             </div>
           </div>
-        </article>
+        </a>
       ))}
     </section>
   );
