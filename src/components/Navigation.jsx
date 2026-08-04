@@ -3,7 +3,6 @@ import Icon from "./Icon";
 import { useContext } from "react";
 import { LoadingContext } from "../context/LoadingContext";
 import LoadingScreen from "./LoadingScreen";
-import Camera from "./Camera";
 
 const Navigation = ({ opening, setOpening }) => {
   const { loadingContext } = useContext(LoadingContext);
@@ -44,7 +43,7 @@ const Navigation = ({ opening, setOpening }) => {
 
   return (
     <nav className={loadingContext ? "loadingScreen" : !opening ? "device-app" : "app-in-use"}>
-      <Camera />
+    
       {!loadingContext ? (
         <>
           {!opening &&

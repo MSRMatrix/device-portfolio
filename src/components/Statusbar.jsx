@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Camera from "./Camera";
 
 const Staturbar = ({ theme, setTheme }) => {
   const max = 100;
@@ -33,9 +34,7 @@ const Staturbar = ({ theme, setTheme }) => {
       </span>
 
       <div className="status-icons">
-        <span>📶</span>
 
-        <span>📡</span>
 
         <div className="battery">
           <div
@@ -51,8 +50,8 @@ const Staturbar = ({ theme, setTheme }) => {
             }}
           />
         </div>
-
-        <span className="battery-percent">{percent}%</span>
+<Camera />
+        {/* <span className="battery-percent">{percent}%</span> */}
 
         <button className="theme-button" onClick={themeMode}>
           {theme === "light" ? "🌙" : "☀️"}
