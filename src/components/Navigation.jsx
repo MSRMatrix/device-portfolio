@@ -1,11 +1,12 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import Icon from "./Icon";
 import { useContext } from "react";
 import { LoadingContext } from "../context/LoadingContext";
 import LoadingScreen from "./LoadingScreen";
 
 const Navigation = ({ opening, setOpening }) => {
-  const { loadingContext } = useContext(LoadingContext);
+  const { loadingContext, setLoadingContext } = useContext(LoadingContext);
+  const navigate = useNavigate()
   const navArray = [
     {
       name: "Über mich",
@@ -48,23 +49,31 @@ const Navigation = ({ opening, setOpening }) => {
         <>
           {!opening &&
             navArray.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className="screen-link"
-                onClick={() => setOpening(true)}
-              >
-                <div className="app-icon">
-                  <Icon iconName={item.icon} />
-                </div>
+             <div
+  key={item.path}
+  className="screen-link"
+  onClick={() => {
 
-                <span>{item.name}</span>
-              </NavLink>
+    setTimeout(() => {
+      setOpening(true)
+      navigate(item.path);
+
+    }, 1300);
+
+  }}
+>
+  <div className="app-icon">
+    <Icon iconName={item.icon} />
+  </div>
+
+  <span>{item.name}</span>
+
+</div>
             ))}
           <Outlet />
         </>
       ) : (
-        <LoadingScreen />
+        <LoadingScreen setOpening={setOpening} />
       )}
     </nav>
   );

@@ -43,6 +43,7 @@
     box-shadow: 0 8px 15px var(--screen-shadow);
 
     transition: 0.25s;
+    
 
     svg {
       font-size: 35px;

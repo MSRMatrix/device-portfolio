@@ -32,7 +32,7 @@ const Skills = () => {
       name: "MERN Stack",
       image: mernStack,
       category: "Fullstack",
-      description: "Entwicklung mit React, Node.js und MongoDB.",
+      description: "Entwicklung mit MongoDB, Express, React und Node.js.",
     },
     {
       id: 5,

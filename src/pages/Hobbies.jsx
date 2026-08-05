@@ -34,7 +34,11 @@ const Hobbies = () => {
               <h1>{hobby.name}</h1>
             </div>
 
-            <p>{hobby.description}</p>
+<div className="hobby-description">
+  {hobby.description.map((item, index) => (
+    <p key={index}>{item}</p>
+  ))}
+</div>
 
             {data?.songs && (
               <div className="songs">
