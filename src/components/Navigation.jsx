@@ -1,12 +1,11 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import Icon from "./Icon";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { LoadingContext } from "../context/LoadingContext";
 import LoadingScreen from "./LoadingScreen";
 
-const Navigation = ({ opening, setOpening }) => {
-  const { loadingContext, setLoadingContext } = useContext(LoadingContext);
-  const navigate = useNavigate()
+const Navigation = () => {
+  const navigate = useNavigate();
   const navArray = [
     {
       name: "Über mich",
@@ -42,38 +41,71 @@ const Navigation = ({ opening, setOpening }) => {
 
   // Style muss entfernt werden. Statt dass das Style vom Gerät hier ist, muss es in Device
 
-  return (
-    <nav className={loadingContext ? "loadingScreen" : !opening ? "device-app" : "app-in-use"}>
-    
-      {!loadingContext ? (
-        <>
-          {!opening &&
-            navArray.map((item) => (
-             <div
-  key={item.path}
-  className="screen-link"
-  onClick={() => {
+  const { loadingContext, setLoadingContext } = useContext(LoadingContext);
+  useEffect(() => {
+    if (loadingContext.loading) {
+      const timer = setTimeout(() => {
+        setLoadingContext({
+          loading: false,
+          opening: false,
+        });
+      }, 1500);
+
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  function openApp(path) {
+    setLoadingContext({
+      loading: true,
+      opening: true,
+    });
 
     setTimeout(() => {
-      setOpening(true)
-      navigate(item.path);
+      navigate(path);
 
-    }, 1300);
+      setLoadingContext({
+        loading: false,
+        opening: true,
+      });
+    }, 1000);
+  }
 
-  }}
->
-  <div className="app-icon">
-    <Icon iconName={item.icon} />
-  </div>
+  if (loadingContext.loading) {
+    return <LoadingScreen />;
+  }
 
-  <span>{item.name}</span>
-
-</div>
-            ))}
-          <Outlet />
-        </>
+  return (
+    <nav
+      className={
+        loadingContext.loading
+          ? "loadingScreen"
+          : loadingContext.opening
+            ? "app-in-use"
+            : "device-app"
+      }
+    >
+      {loadingContext.loading ? (
+        <LoadingScreen />
+      ) : loadingContext.opening ? (
+        <Outlet />
       ) : (
-        <LoadingScreen setOpening={setOpening} />
+        navArray.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            className="screen-link"
+            onClick={(event) => {
+              openApp(item.path);
+            }}
+          >
+            <div className="app-icon">
+              <Icon iconName={item.icon} />
+            </div>
+
+            <span>{item.name}</span>
+          </NavLink>
+        ))
       )}
     </nav>
   );

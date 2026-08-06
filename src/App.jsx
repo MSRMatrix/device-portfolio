@@ -21,7 +21,7 @@ import Contact from "@/pages/Contact";
 import Skills from "./pages/Skills";
 
 function App() {
-  const [loadingContext, setLoadingContext] = useState(false);
+  const [loadingContext, setLoadingContext] = useState({loading: true, opening: false});
   const router = createBrowserRouter([
     {
       path: "/",
