@@ -42,14 +42,14 @@ const Contact = () => {
       link: "https://www.linkedin.com/in/michael-santos-rolo-884960298/",
       icon: "faLinkedin",
     },
-    // {
-    //   id: 6,
-    //   type: "website",
-    //   label: "Webseite",
-    //   value: "",
-    //   link: "",
-    //   icon: "faGlobe",
-    // },
+    {
+      id: 6,
+      type: "website",
+      label: "Webseite",
+      value: "",
+      link: "",
+      icon: "faGlobe",
+    },
   ];
   return (
     <section className="contact-app">

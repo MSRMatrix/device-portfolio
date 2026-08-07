@@ -9,8 +9,6 @@ import {
   faEnvelope,
   faPhone,
   faLocationDot,
-  // faGithub,
-  // faLinkedin,
   faGlobe,
   faPen,
   faDumbbell,
@@ -18,6 +16,9 @@ import {
   faBullseye
 
 } from "@fortawesome/free-solid-svg-icons";
+
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+
 
 const iconMap = {
   faAt: faAt,
@@ -29,8 +30,8 @@ const iconMap = {
   faEnvelope: faEnvelope,
   faPhone: faPhone,
   faLocationDot: faLocationDot,
-  // faGithub: faGithub,
-  // faLinkedin: faLinkedin,
+   faGithub: faGithub,
+   faLinkedin: faLinkedin,
   faGlobe: faGlobe,
   faPen : faPen,
 faDumbbell: faDumbbell,  
