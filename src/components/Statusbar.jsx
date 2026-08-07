@@ -54,7 +54,7 @@ const Staturbar = ({ theme, setTheme }) => {
         {/* <span className="battery-percent">{percent}%</span> */}
 
         <button className="theme-button" onClick={themeMode}>
-          {theme === "light" ? "🌙" : "☀️"}
+          {theme === "light" ? "☀️" : "🌙"}
         </button>
       </div>
     </div>

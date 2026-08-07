@@ -1,7 +1,6 @@
 const LoadingScreen = () => {
     return (
-        <div style={{color: "white"}}>
-        Ladebalken
+        <div className="loader">
         </div>
     );
 

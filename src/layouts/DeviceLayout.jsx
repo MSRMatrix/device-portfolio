@@ -12,8 +12,10 @@ const DeviceLayout = () => {
      <div className="device-layout">
       <Device theme={theme} setTheme={setTheme}>
 
-        <Navigation/>
-        
+       <Outlet />
+ 
+         <Navigation/> 
+
       </Device>
     </div>
 </div>

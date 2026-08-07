@@ -1,3 +1,23 @@
-.loadingScreen{
-    /* test */
+.loader {
+
+    width:50px;
+    height:50px;
+
+    border:5px solid var(--icon-background);
+
+    border-top-color: var(--accent);
+
+    border-radius:50%;
+
+    animation: spin .8s linear infinite;
+
+}
+
+
+@keyframes spin {
+
+    to {
+        transform:rotate(360deg);
+    }
+
 }

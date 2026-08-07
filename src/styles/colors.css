@@ -1,41 +1,34 @@
 /* ============================
    ☀️ LIGHT MODE - Neues Gerät
    ============================ */
-
 :root {
 
     /* Gerät / Rahmen */
-    --device-frame: #D9D9D9;
-    --device-edge: #AFAFAF;
-    --device-detail: #FFFFFF;
-
+    --device-frame: #BEBEC4;
+    --device-edge: #9E9EA5;
+    --device-detail: #D8D8DD;
 
     /* Bildschirm */
-    --screen-background: #F8F9FA;
-    --screen-surface: #FFFFFF;
-
+    --screen-background: #D7D9DE;
+    --screen-surface: #E7E8EC;
 
     /* Text */
-    --text-primary: #1C1C1E;
-    --text-secondary: #636366;
-
+    --text-primary: #202124;
+    --text-secondary: #5F6368;
 
     /* Akzente */
     --accent: #007AFF;
-    --accent-hover: #005FCC;
-
+    --accent-hover: #0062CC;
 
     /* Icons */
-    --icon-background: #E5E5EA;
-    --icon-color: #1C1C1E;
-
+    --icon-background: #C8CAD0;
+    --icon-color: #202124;
 
     /* Schatten */
-    --device-shadow: rgba(0, 0, 0, 0.25);
-    --screen-shadow: rgba(0, 0, 0, 0.12);
+    --device-shadow: rgba(0, 0, 0, 0.18);
+    --screen-shadow: rgba(0, 0, 0, 0.10);
 
 }
-
 
 /* ============================
    🌙 DARK MODE - Dunkles Gerät
@@ -44,33 +37,28 @@
 .dark {
 
     /* Gerät / Rahmen */
-    --device-frame: #1C1C1E;
-    --device-edge: #000000;
-    --device-detail: #2C2C2E;
-
+    --device-frame: #383A40;
+    --device-edge: #2B2D31;
+    --device-detail: #50535A;
 
     /* Bildschirm */
-    --screen-background: #000000;
-    --screen-surface: #1C1C1E;
-
+    --screen-background: #2A2D33;
+    --screen-surface: #383C43;
 
     /* Text */
-    --text-primary: #F5F5F7;
-    --text-secondary: #A1A1A6;
-
+    --text-primary: #F4F4F5;
+    --text-secondary: #C0C3C8;
 
     /* Akzente */
-    --accent: #0A84FF;
-    --accent-hover: #409CFF;
-
+    --accent: #3B82F6;
+    --accent-hover: #60A5FA;
 
     /* Icons */
-    --icon-background: #2C2C2E;
-    --icon-color: #F5F5F7;
-
+    --icon-background: #4A4E56;
+    --icon-color: #F4F4F5;
 
     /* Schatten */
-    --device-shadow: rgba(0, 0, 0, 0.75);
-    --screen-shadow: rgba(0, 0, 0, 0.60);
+    --device-shadow: rgba(0, 0, 0, 0.35);
+    --screen-shadow: rgba(0, 0, 0, 0.20);
 
 }

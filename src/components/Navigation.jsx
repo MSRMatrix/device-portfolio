@@ -1,11 +1,12 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import Icon from "./Icon";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LoadingContext } from "../context/LoadingContext";
 import LoadingScreen from "./LoadingScreen";
 
 const Navigation = () => {
   const navigate = useNavigate();
+  const [openingApp, setOpeningApp] = useState(null);
   const navArray = [
     {
       name: "Über mich",
@@ -55,59 +56,39 @@ const Navigation = () => {
     }
   }, []);
 
-  function openApp(path) {
-    setLoadingContext({
-      loading: true,
-      opening: true,
-    });
 
-    setTimeout(() => {
-      navigate(path);
+  function openApp(item){
 
-      setLoadingContext({
-        loading: false,
-        opening: true,
-      });
-    }, 1000);
+    setOpeningApp(item.path);
+
+
+    setTimeout(()=>{
+
+      navigate(item.path);
+
+    },500);
+
   }
 
-  if (loadingContext.loading) {
-    return <LoadingScreen />;
-  }
 
   return (
-    <nav
-      className={
-        loadingContext.loading
-          ? "loadingScreen"
-          : loadingContext.opening
-            ? "app-in-use"
-            : "device-app"
-      }
+   <nav className={loadingContext.opening ? "app-in-use" : "device-app"}>
+  {navArray.map((item) => (
+    <div
+      key={item.path}
+      className={`screen-link ${
+        openingApp === item.path ? "opening" : ""
+      }`}
+      onClick={() => openApp(item)}
     >
-      {loadingContext.loading ? (
-        <LoadingScreen />
-      ) : loadingContext.opening ? (
-        <Outlet />
-      ) : (
-        navArray.map((item) => (
-          <NavLink
-            key={item.path}
-            to={item.path}
-            className="screen-link"
-            onClick={(event) => {
-              openApp(item.path);
-            }}
-          >
-            <div className="app-icon">
-              <Icon iconName={item.icon} />
-            </div>
+      <div className="app-icon">
+        <Icon iconName={item.icon} />
+      </div>
 
-            <span>{item.name}</span>
-          </NavLink>
-        ))
-      )}
-    </nav>
+      <span>{item.name}</span>
+    </div>
+  ))}
+</nav>
   );
 };
 
