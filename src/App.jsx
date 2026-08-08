@@ -7,7 +7,6 @@ import {
 
 import { useState } from "react";
 
-
 import "@/styles/globals.css";
 
 import DeviceLayout from "./layouts/DeviceLayout";
@@ -54,9 +53,9 @@ function App() {
       ],
     },
     {
-       path: "*",
+      path: "*",
       element: <DeviceLayout />,
-    }
+    },
   ]);
 
   return (

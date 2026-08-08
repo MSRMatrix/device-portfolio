@@ -1,45 +1,37 @@
 @import "../colors.css";
 
 .home-indicator {
+  position: absolute;
 
-    position: absolute;
+  bottom: 10px;
+  left: 50%;
 
-    bottom: 10px;
-    left: 50%;
+  transform: translateX(-50%);
 
-    transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
 
-    width: 120px;
-    height: 5px;
+  border-radius: 999px;
 
-    border-radius: 999px;
+  background: var(--text-primary);
 
-    background: var(--text-primary);
+  opacity: 0.35;
 
-    opacity: .35;
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease;
 
-    transition:
-        opacity .2s ease,
-        transform .15s ease;
+  z-index: 20;
 
-    z-index: 20;
-
-    cursor: pointer;
-
+  cursor: pointer;
 }
 
 .home-indicator:hover {
-
-    opacity: .7;
-
+  opacity: 0.7;
 }
 
 .home-indicator:active {
+  transform: translateX(-50%) scaleX(0.92);
 
-    transform:
-        translateX(-50%)
-        scaleX(.92);
-
-    opacity: 1;
-
+  opacity: 1;
 }

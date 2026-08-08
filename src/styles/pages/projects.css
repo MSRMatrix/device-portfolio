@@ -4,32 +4,28 @@
   width: 100%;
   height: 100%;
 
-  padding: 20px;
-
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 20px;
+
+  padding: 20px;
 
   overflow-y: auto;
 
   .project-card {
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
     background: var(--screen-surface);
 
     border-radius: 20px;
 
-    overflow: hidden;
-
     box-shadow: 0 10px 25px var(--screen-shadow);
 
-    display: flex;
-
-    flex-direction: column;
-
-    text-decoration: none;
-
     color: inherit;
+    text-decoration: none;
 
     transition:
       transform 0.25s ease,
@@ -39,10 +35,11 @@
     &:hover {
       transform: translateY(-8px);
 
+      box-shadow: 0 18px 35px var(--screen-shadow);
+
       .project-content h2 {
         color: var(--accent);
       }
-      box-shadow: 0 18px 35px var(--screen-shadow);
     }
 
     &:active {
@@ -50,6 +47,7 @@
 
       box-shadow: 0 5px 15px var(--screen-shadow);
     }
+
     .project-image {
       width: 100%;
       height: 180px;
@@ -75,7 +73,6 @@
 
       .project-type {
         color: var(--accent);
-
         font-size: 0.9rem;
       }
 
@@ -85,19 +82,17 @@
 
       .technologies {
         display: flex;
-
         flex-wrap: wrap;
-
         gap: 8px;
 
         small {
-          background: var(--accent);
-
-          color: white;
-
           padding: 5px 10px;
 
+          background: var(--accent);
+
           border-radius: 20px;
+
+          color: white;
         }
       }
     }
@@ -108,64 +103,62 @@
   .projects-app {
     display: flex;
     flex-direction: column;
-
     gap: 20px;
-  }
 
-  .project-card {
-    min-height: 320px;
+    .project-card {
+      position: relative;
 
-    position: relative;
+      min-height: 320px;
 
-    border-radius: 25px;
+      overflow: hidden;
 
-    overflow: hidden;
+      border-radius: 25px;
 
-    .project-image {
-      position: absolute;
+      .project-image {
+        position: absolute;
+        inset: 0;
 
-      inset: 0;
-
-      height: 100%;
-
-      img {
         width: 100%;
         height: 100%;
 
-        object-fit: cover;
-      }
-    }
+        img {
+          width: 100%;
+          height: 100%;
 
-    .project-content {
-      position: absolute;
-
-      bottom: 0;
-
-      width: 100%;
-
-      padding: 25px;
-
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
-
-      h2 {
-        color: white;
-
-        font-size: 1.5rem;
+          object-fit: cover;
+        }
       }
 
-      .project-type {
-        color: #0a84ff;
-      }
+      .project-content {
+        position: absolute;
+        bottom: 0;
 
-      p {
-        color: #ddd;
-      }
+        width: 100%;
 
-      .technologies {
-        small {
-          background: rgba(255, 255, 255, 0.2);
+        padding: 25px;
 
-          backdrop-filter: blur(10px);
+        background: linear-gradient(transparent,
+            rgba(0, 0, 0, 0.85));
+
+        h2 {
+          color: white;
+          font-size: 1.5rem;
+        }
+
+        .project-type {
+          color: #0a84ff;
+        }
+
+        p {
+          color: #ddd;
+        }
+
+        .technologies {
+          small {
+            background: rgba(255, 255, 255, 0.2);
+
+            backdrop-filter: blur(10px);
+          }
         }
       }
     }
@@ -174,41 +167,41 @@
 
 @media (max-width: 400px) {
   .projects-app {
+    gap: 12px;
     padding: 12px;
 
-    gap: 12px;
-  }
+    .project-card {
+      border-radius: 18px;
 
-  .project-card {
-    border-radius: 18px;
-
-    .project-image {
-      height: 120px;
-    }
-
-    .project-content {
-      padding: 12px;
-
-      h2 {
-        font-size: 1rem;
+      .project-image {
+        height: 120px;
       }
 
-      p {
-        font-size: 0.8rem;
+      .project-content {
+        padding: 12px;
 
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
+        h2 {
+          font-size: 1rem;
+        }
 
-      .technologies {
-        gap: 5px;
+        p {
+          display: -webkit-box;
+          overflow: hidden;
 
-        small {
-          font-size: 0.65rem;
+          font-size: 0.8rem;
 
-          padding: 3px 7px;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+        }
+
+        .technologies {
+          gap: 5px;
+
+          small {
+            padding: 3px 7px;
+
+            font-size: 0.65rem;
+          }
         }
       }
     }

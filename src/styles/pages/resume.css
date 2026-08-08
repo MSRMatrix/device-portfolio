@@ -59,11 +59,11 @@
   background: var(--icon-background);
 }
 
-.resume-item h2  {
-    margin: 0;
+.resume-item h2 {
+  margin: 0;
 
-    color: var(--text-primary);
-    font-size: 1.1rem;
+  color: var(--text-primary);
+  font-size: 1.1rem;
 }
 
 .role {
@@ -130,127 +130,83 @@
   }
 }
 @media (max-width: 600px) {
+  .resume-app {
+    padding: 10px;
+  }
 
-    .resume-app {
+  .resume-item {
+    padding: 15px;
 
-        padding:10px;
+    margin-bottom: 15px;
 
-    }
+    border-radius: 20px;
+  }
 
+  .resume-header {
+    gap: 10px;
+  }
 
-    .resume-item {
+  .resume-icon {
+    min-width: 40px;
 
-        padding:15px;
+    height: 40px;
 
-        margin-bottom:15px;
+    font-size: 20px;
 
-        border-radius:20px;
+    border-radius: 12px;
+  }
 
-    }
+  .resume-item h2 {
+    font-size: 0.95rem;
+  }
 
+  .role {
+    font-size: 0.8rem;
+  }
 
-    .resume-header {
+  .date {
+    font-size: 0.7rem;
+  }
 
-        gap:10px;
+  .resume-item button {
+    padding: 10px;
 
-    }
+    font-size: 0.8rem;
 
+    margin-top: 15px;
+  }
 
-    .resume-icon {
+  .resume-description {
+    font-size: 0.8rem;
 
-        min-width:40px;
-
-        height:40px;
-
-        font-size:20px;
-
-        border-radius:12px;
-
-    }
-
-
-    .resume-item h2 {
-
-        font-size:0.95rem;
-
-    }
-
-
-    .role {
-
-        font-size:0.8rem;
-
-    }
-
-
-    .date {
-
-        font-size:0.7rem;
-
-    }
-
-
-    .resume-item button {
-
-        padding:10px;
-
-        font-size:0.8rem;
-
-        margin-top:15px;
-
-    }
-
-
-    .resume-description {
-
-        font-size:0.8rem;
-
-        line-height:1.4;
-
-    }
-
+    line-height: 1.4;
+  }
 }
 
 @media (max-width: 350px) {
+  .resume-item {
+    padding: 12px;
+  }
 
-    .resume-item {
+  .resume-header {
+    flex-direction: column;
 
-        padding:12px;
+    align-items: flex-start;
+  }
 
-    }
+  .resume-icon {
+    width: 35px;
 
+    height: 35px;
 
-    .resume-header {
+    font-size: 18px;
+  }
 
-        flex-direction:column;
+  .resume-item h2 {
+    font-size: 0.85rem;
+  }
 
-        align-items:flex-start;
-
-    }
-
-
-    .resume-icon {
-
-        width:35px;
-
-        height:35px;
-
-        font-size:18px;
-
-    }
-
-
-    .resume-item h2 {
-
-        font-size:0.85rem;
-
-    }
-
-
-    .resume-description {
-
-        font-size:0.75rem;
-
-    }
-
+  .resume-description {
+    font-size: 0.75rem;
+  }
 }
