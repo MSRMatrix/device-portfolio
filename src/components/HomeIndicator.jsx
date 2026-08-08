@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoadingContext } from "../context/LoadingContext";
+import { AppContext } from "../context/AppContext";
 
 const HomeIndicator = () => {
-  const { loadingContext, setLoadingContext } = useContext(LoadingContext);
+  const { setAppContext } = useContext(AppContext);
 
   const navigate = useNavigate();
 
@@ -11,12 +11,10 @@ const HomeIndicator = () => {
     <div
       className="home-indicator"
       onClick={() => {
+        setAppContext(false);
         navigate("/");
 
-        setLoadingContext({
-          loading: false,
-          opening: false,
-        });
+        
       }}
     ></div>
   );

@@ -7,7 +7,6 @@ import {
 
 import { useState } from "react";
 
-import { LoadingContext } from "./context/LoadingContext";
 
 import "@/styles/globals.css";
 
@@ -19,9 +18,10 @@ import Resume from "@/pages/Resume";
 import Hobbies from "@/pages/Hobbies";
 import Contact from "@/pages/Contact";
 import Skills from "./pages/Skills";
+import { AppContext } from "./context/AppContext";
 
 function App() {
-  const [loadingContext, setLoadingContext] = useState({loading: true, opening: false});
+  const [appContext, setAppContext] = useState(false);
   const router = createBrowserRouter([
     {
       path: "/",
@@ -61,9 +61,9 @@ function App() {
 
   return (
     <>
-      <LoadingContext.Provider value={{ loadingContext, setLoadingContext }}>
+      <AppContext.Provider value={{ appContext, setAppContext }}>
         <RouterProvider router={router} />
-      </LoadingContext.Provider>
+      </AppContext.Provider>
     </>
   );
 }

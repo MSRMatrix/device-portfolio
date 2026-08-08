@@ -105,3 +105,56 @@
     }
   }
 }
+
+
+.screen-link {
+  transition:
+    transform 0.5s ease,
+    opacity 0.3s ease;
+
+  .app-icon {
+    transition:
+      transform 0.5s ease,
+      background 0.3s ease;
+  }
+}
+
+.screen-link.opening {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 100;
+
+  background: var(--screen-background);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform: none;
+
+  .app-icon {
+    transform: scale(1.5);
+
+    background: var(--accent);
+
+    svg {
+      color: white;
+    }
+  }
+
+  span {
+    display: none;
+  }
+}
+
+.device-app:has(.opening) .screen-link:not(.opening) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hide{
+  display: none;
+}

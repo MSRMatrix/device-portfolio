@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Device from "../components/Device";
 import { useState } from "react";
-import { LoadingContext } from "../context/LoadingContext";
 
 const DeviceLayout = () => {
     const [theme, setTheme] = useState("dark");
