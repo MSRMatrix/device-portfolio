@@ -8,7 +8,7 @@ import codingData from "@/data/coding";
 import dartsData from "@/data/darts";
 import YoutubePlayer from "@/components/YoutubePlayer";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Hobbies = () => {
   const [activeSong, setActiveSong] = useState(null);
@@ -21,30 +21,80 @@ const Hobbies = () => {
     darts: dartsData,
   };
 
+  const [activeHobby, setActiveHobby] = useState(1);
+  const hobbyRefs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveHobby(Number(entry.target.dataset.hobbyId));
+          }
+        });
+      },
+      {
+        threshold: 0.6,
+      },
+    );
+
+    hobbyRefs.current.forEach((section) => {
+      if (section) {
+        observer.observe(section);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="hobbies">
-      {hobbiesArray.map((hobby) => {
+      <div className="hobby-indicator">
+        {hobbiesArray.map((hobby) => (
+          <span
+            key={hobby.id}
+            className={activeHobby === hobby.id ? "active" : ""}
+            onClick={() => {
+              document
+                .querySelector(`[data-hobby-id="${hobby.id}"]`)
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                });
+            }}
+          />
+        ))}
+      </div>
+
+      {hobbiesArray.map((hobby, index) => {
         const data = hobbyContent[hobby.key];
 
         return (
-          <article key={hobby.id} className="hobby-page">
+          <article
+            key={hobby.id}
+            data-hobby-id={hobby.id}
+            className="hobby-page"
+            ref={(element) => {
+              hobbyRefs.current[index] = element;
+            }}
+          >
             <div className="hobby-header">
               <Icon iconName={hobby.icon} />
 
               <h1>{hobby.name}</h1>
             </div>
 
-<div className="hobby-description">
-  {hobby.description.map((item, index) => (
-    <p key={index}>{item}</p>
-  ))}
-</div>
+            <div className="hobby-description">
+              {hobby.description.map((item, index) => (
+                <p key={index}>{item}</p>
+              ))}
+            </div>
 
             {data?.songs && (
               <div className="songs">
                 {data.songs.map((song) => (
-                  <div onClick={() => setActiveSong(song)}
+                  <div
                     key={song.id}
+                    onClick={() => setActiveSong(song)}
                     className={`song ${
                       activeSong?.id === song.id ? "active" : ""
                     }`}

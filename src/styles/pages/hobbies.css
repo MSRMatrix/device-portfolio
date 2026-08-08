@@ -164,3 +164,43 @@
   }
 
 }
+
+.hobby-indicator {
+  position: fixed;
+
+  margin-top: 10px;
+  left: 50%;
+  cursor: pointer;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  z-index: 10;
+
+  span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--text-secondary);
+
+    opacity: 0.4;
+
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  span.active {
+    background: var(--accent);
+    cursor: default;
+    opacity: 1;
+
+    transform: scale(1.4);
+  }
+}
