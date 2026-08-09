@@ -5,81 +5,97 @@ import { AppContext } from "../context/AppContext";
 
 const Navigation = () => {
   const navigate = useNavigate();
+  const { appContext, setAppContext } = useContext(AppContext);
   const [openingApp, setOpeningApp] = useState(null);
+  const [counter, setCounter] = useState(0)
+  // const [counter, setCounter] = useState(0)
+
   const navArray = [
-    {
-      name: "Über mich",
-      path: "/about",
-      icon: "faCircleInfo",
-    },
-    {
-      name: "Skills",
-      path: "/skills",
-      icon: "faScrewdriverWrench",
-    },
-    {
-      name: "Projekte",
-      path: "/projects",
-      icon: "faLaptop",
-    },
-    {
-      name: "Werdegang",
-      path: "/resume",
-      icon: "faBriefcase",
-    },
-    {
-      name: "Hobbies",
-      path: "/hobbies",
-      icon: "faGuitar",
-    },
-    {
-      name: "Kontakt",
-      path: "/contact",
-      icon: "faAt",
-    },
+    [
+      {
+        name: "Über mich",
+        path: "/about",
+        icon: "faCircleInfo",
+      },
+      {
+        name: "Skills",
+        path: "/skills",
+        icon: "faScrewdriverWrench",
+      },
+      {
+        name: "Projekte",
+        path: "/projects",
+        icon: "faLaptop",
+      },
+      {
+        name: "Werdegang",
+        path: "/resume",
+        icon: "faBriefcase",
+      },
+    ],
+    [
+      {
+        name: "Hobbies",
+        path: "/hobbies",
+        icon: "faGuitar",
+      },
+      {
+        name: "Kontakt",
+        path: "/contact",
+        icon: "faAt",
+      },
+      {
+        name: "Musik",
+        path: "/music",
+        icon: "faHeadphones",
+      },
+      {
+        name: "Einstellunge",
+        path: "/settings",
+        icon: "faGear",
+      },
+    ],
   ];
 
-  // Style muss entfernt werden. Statt dass das Style vom Gerät hier ist, muss es in Device
+  function openApp(item) {
+    setOpeningApp(item.path);
 
-  const {appContext, setAppContext} = useContext(AppContext)
+    setTimeout(() => {
+      navigate(item.path);
 
+      setAppContext(true);
+    }, 500);
 
-function openApp(item) {
-  setOpeningApp(item.path);
+    setTimeout(() => {
+      setOpeningApp(null);
+    }, 1000);
+  }
 
-  setTimeout(() => {
-    navigate(item.path);
+  return (
+    <nav className={`device-app ${appContext ? "hide" : "app-open"}`}>
+      {counter > 0 ? <div className="navigation-button left"  onClick={() => setCounter(counter - 1)}>
+        <Icon iconName={"faCircleArrowLeft"}/>  
+        </div> : <></>}
+      {navArray[counter].map((item) => (
+        <div
+          key={item.path}
+          className={`screen-link ${openingApp === item.path ? "opening" : ""}`}
+          onClick={() => openApp(item)}
+        >
+          <div className="app-icon">
+            <Icon iconName={item.icon} />
+          </div>
 
-    setAppContext(true);
-  }, 500);
-
-  setTimeout(() => {
-    setOpeningApp(null);
-  }, 1000);
-}
-
-console.log(appContext);
-
-
-return (
-  <nav className={`device-app ${appContext ? "hide" : "app-open"}`}>
-    {navArray.map((item) => (
-      <div
-        key={item.path}
-        className={`screen-link ${
-          openingApp === item.path ? "opening" : ""
-        }`}
-        onClick={() => openApp(item)}
-      >
-        <div className="app-icon">
-          <Icon iconName={item.icon} />
+          <span>{item.name}</span>
         </div>
-
-        <span>{item.name}</span>
-      </div>
-    ))}
-  </nav> 
-);
+      ))}
+      {counter < navArray.length - 1 && (
+        <div className="navigation-button right" onClick={() => setCounter(counter + 1)}>
+        <Icon iconName={"faCircleArrowRight"}/>  
+        </div>
+)}
+    </nav>
+  );
 };
 
 export default Navigation;

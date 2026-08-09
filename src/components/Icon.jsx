@@ -13,12 +13,15 @@ import {
   faPen,
   faDumbbell,
   faCode,
-  faBullseye
-
+  faBullseye,
+  faGear,
+  faCircleQuestion,
+  faHeadphones,
+  faCircleArrowLeft,
+  faCircleArrowRight
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
-
 
 const iconMap = {
   faAt: faAt,
@@ -30,24 +33,27 @@ const iconMap = {
   faEnvelope: faEnvelope,
   faPhone: faPhone,
   faLocationDot: faLocationDot,
-   faGithub: faGithub,
-   faLinkedin: faLinkedin,
+  faGithub: faGithub,
+  faLinkedin: faLinkedin,
   faGlobe: faGlobe,
-  faPen : faPen,
-faDumbbell: faDumbbell,  
-faCode: faCode,  
-faBullseye: faBullseye,  
+  faPen: faPen,
+  faDumbbell: faDumbbell,
+  faCode: faCode,
+  faBullseye: faBullseye,
+  faGear: faGear,
+  faCircleQuestion:faCircleQuestion,
+  faHeadphones: faHeadphones,
+  faCircleArrowLeft: faCircleArrowLeft,
+  faCircleArrowRight: faCircleArrowRight,
 };
 
 const Icon = ({ iconName }) => {
-  const icon = iconMap[iconName];
-  if (!icon) return null;
+    const icon = iconMap[iconName] || faCircleQuestion;
 
-  return (
-    <div className="icon">
-      <FontAwesomeIcon icon={icon} />
-    </div>
-  );
+    return (
+        <div className="icon">
+            <FontAwesomeIcon icon={icon} />
+        </div>
+    );
 };
-
 export default Icon;

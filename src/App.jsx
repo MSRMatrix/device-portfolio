@@ -13,11 +13,12 @@ import DeviceLayout from "./layouts/DeviceLayout";
 
 import About from "@/pages/About";
 import Projects from "@/pages/Projects";
-import Resume from "@/pages/Resume";
 import Hobbies from "@/pages/Hobbies";
 import Contact from "@/pages/Contact";
 import Skills from "./pages/Skills";
 import { AppContext } from "./context/AppContext";
+import Settings from "./pages/Settings";
+import Resume from "./pages/Resume";
 
 function App() {
   const [appContext, setAppContext] = useState(false);
@@ -49,6 +50,10 @@ function App() {
         {
           path: "contact",
           element: <Contact />,
+        },
+         {
+          path: "settings",
+          element: <Settings />,
         },
       ],
     },

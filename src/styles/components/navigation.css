@@ -139,3 +139,74 @@
 .hide {
   display: none;
 }
+
+
+.navigation-button {
+    position: absolute;
+
+    top: 50%;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-50%);
+
+    background: var(--icon-background);
+
+    color: var(--accent);
+
+    border: 1px solid transparent;
+
+    border-radius: 50%;
+
+    box-shadow: 0 6px 15px var(--screen-shadow);
+
+    cursor: pointer;
+
+    z-index: 20;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.navigation-button.left {
+    left: 10px;
+}
+
+.navigation-button.right {
+    right: 10px;
+}
+
+.navigation-button:hover {
+    background: var(--accent);
+
+    color: white;
+
+    border-color: var(--accent);
+
+    box-shadow: 0 8px 20px var(--screen-shadow);
+}
+
+.navigation-button.left:hover {
+    transform: translateY(-50%) scale(1.08) translateX(-2px);
+}
+
+.navigation-button.right:hover {
+    transform: translateY(-50%) scale(1.08) translateX(2px);
+}
+
+.navigation-button:active {
+    transform: translateY(-50%) scale(0.92);
+}
+
+.navigation-button svg {
+    font-size: 18px;
+}
