@@ -213,4 +213,7 @@
 
 .disabled{
   cursor: not-allowed;
+  svg{
+    color: white !important;
+  }
 }
