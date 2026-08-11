@@ -210,3 +210,7 @@
 .navigation-button svg {
     font-size: 18px;
 }
+
+.disabled{
+  cursor: not-allowed;
+}
