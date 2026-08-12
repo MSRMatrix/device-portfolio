@@ -1,119 +1,80 @@
 @import "../colors.css";
 
 .hobbies {
+  width: 100%;
+  height: 100%;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scroll-snap-type: y mandatory;
+
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+
+  .hobby-page {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-
-    .hobby-page {
-        width: 100%;
-        height: 100%;
-        min-height: 100%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        gap: 20px;
-        padding: 40px;
-        box-sizing: border-box;
-
-        scroll-snap-align: start;
-
-        .hobby-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            svg {
-                color: var(--accent);
-                font-size: 4rem;
-            }
-
-            h1 {
-                color: var(--text-primary);
-            }
-        }
-
-        p {
-            max-width: 700px;
-
-            color: var(--text-secondary);
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        .songs {
-            width: 100%;
-            max-width: 700px;
-
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-
-            overflow-y: auto;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
-
-            .song {
-                padding: 18px;
-
-                background: var(--screen-surface);
-
-                border-radius: 22px;
-
-                box-shadow: 0 8px 20px var(--screen-shadow);
-
-                cursor: pointer;
-
-                transition:
-                    transform 0.25s ease,
-                    box-shadow 0.25s ease;
-
-                &:hover {
-                    transform: translateY(-3px);
-
-                    box-shadow: 0 12px 25px var(--screen-shadow);
-                }
-
-                &.active {
-                    border: 2px solid var(--accent);
-                    background: var(--icon-background);
-
-                    h2 {
-                        color: var(--accent);
-                    }
-                }
-
-                h2 {
-                    margin: 0;
-
-                    color: var(--text-primary);
-                    font-size: 1.1rem;
-                }
-
-                p {
-                    margin-top: 5px;
-
-                    color: var(--text-secondary);
-                    font-size: 0.9rem;
-                }
-            }
-        }
-    }
-}
-
-.hobby-description {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
 
-    .hobby-info {
+    gap: 20px;
+
+    padding: 40px;
+    box-sizing: border-box;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    height: auto;
+
+    .hobby-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      flex-shrink: 0;
+
+      svg {
+        color: var(--accent);
+        font-size: 4rem;
+      }
+
+      h1 {
+        margin: 0;
+
+        color: var(--text-primary);
+        text-align: center;
+      }
+    }
+
+    .hobby-description {
+      width: 100%;
+      max-width: 700px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      flex-shrink: 0;
+
+      p {
+        margin: 0;
+
+        color: var(--text-secondary);
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .hobby-info {
         padding: 12px 15px;
 
         background: var(--screen-surface);
@@ -125,46 +86,227 @@
         color: var(--text-primary);
         font-size: 0.95rem;
         line-height: 1.4;
+      }
     }
+
+    .songs {
+      width: 100%;
+      max-width: 700px;
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 15px;
+
+      overflow: visible;
+
+      flex-shrink: 0;
+
+      .song {
+        width: 100%;
+
+        padding: 18px;
+        box-sizing: border-box;
+
+        background: var(--screen-surface);
+
+        border: 2px solid transparent;
+        border-radius: 22px;
+
+        box-shadow: 0 8px 20px var(--screen-shadow);
+
+        cursor: pointer;
+
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease,
+          border-color 0.25s ease,
+          background 0.25s ease;
+
+        &:hover {
+          transform: translateY(-3px);
+
+          box-shadow: 0 12px 25px var(--screen-shadow);
+        }
+
+        &.active {
+          border-color: var(--accent);
+
+          background: var(--icon-background);
+
+          h2 {
+            color: var(--accent);
+          }
+        }
+
+        h2 {
+          margin: 0;
+
+          color: var(--text-primary);
+
+          font-size: 1.1rem;
+
+          transition: color 0.25s ease;
+        }
+
+        p {
+          margin: 5px 0 0;
+
+          color: var(--text-secondary);
+
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+.hobby-description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .hobby-info {
+    padding: 12px 15px;
+
+    background: var(--screen-surface);
+
+    border-radius: 16px;
+
+    box-shadow: 0 5px 15px var(--screen-shadow);
+
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
 }
 
 .hobby-indicator {
-    position: fixed;
-    left: 50%;
+  position: fixed;
+  left: 50%;
 
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
-    margin-top: 10px;
+  margin-top: 10px;
 
-    z-index: 10;
+  z-index: 10;
 
-    cursor: pointer;
-    transform: translateX(-50%);
+  cursor: pointer;
+  transform: translateX(-50%);
 
-    span {
-        width: 7px;
-        height: 7px;
+  span {
+    width: 7px;
+    height: 7px;
 
-        background: var(--text-secondary);
+    background: var(--text-secondary);
 
-        border-radius: 50%;
+    border-radius: 50%;
 
-        opacity: 0.4;
+    opacity: 0.4;
 
-        transition:
-            transform 0.3s ease,
-            background 0.3s ease,
-            opacity 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease,
+      opacity 0.3s ease;
 
-        &.active {
-            background: var(--accent);
+    &.active {
+      background: var(--accent);
 
-            cursor: default;
-            opacity: 1;
+      cursor: default;
+      opacity: 1;
 
-            transform: scale(1.4);
-        }
+      transform: scale(1.4);
     }
+  }
+}
+
+/*
+========================================
+Kleinere Displays
+========================================
+*/
+
+@media (max-width: 600px) {
+  .hobbies {
+    .hobby-page {
+
+      gap: 15px;
+
+      padding: 30px 18px 70px;
+
+      .hobby-header {
+        svg {
+          font-size: 3rem;
+        }
+
+        h1 {
+          font-size: 1.6rem;
+        }
+      }
+
+      .hobby-description {
+        p {
+          font-size: 0.9rem;
+
+          line-height: 1.5;
+        }
+      }
+
+      .songs {
+        gap: 12px;
+
+        .song {
+          padding: 15px;
+
+          border-radius: 18px;
+
+          h2 {
+            font-size: 1rem;
+          }
+
+          p {
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+========================================
+Sehr kleine Displays
+========================================
+*/
+
+@media (max-width: 400px) {
+  .hobbies {
+    .hobby-page {
+      padding: 25px 14px 65px;
+
+      gap: 12px;
+
+      .hobby-header {
+        svg {
+          font-size: 2.5rem;
+        }
+
+        h1 {
+          font-size: 1.4rem;
+        }
+      }
+
+      .songs {
+        gap: 10px;
+
+        .song {
+          padding: 13px;
+
+          border-radius: 16px;
+        }
+      }
+    }
+  }
 }

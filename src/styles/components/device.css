@@ -81,7 +81,7 @@
 
 /* Home Indicator bleibt unten */
 
-@media (max-width: 467px) {
+@media (max-width: 422px) {
   .device {
     border-radius: 35px;
 
