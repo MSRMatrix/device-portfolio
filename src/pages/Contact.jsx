@@ -53,6 +53,7 @@ const Contact = () => {
   ];
   return (
     <section className="contact-app">
+      <h2 className="topic">Kontaktiere mich</h2>
       {contactArray.map((item) => (
         <article key={item.id} className="contact-card">
           <div className="contact-icon">
