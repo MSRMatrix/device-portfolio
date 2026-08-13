@@ -13,21 +13,19 @@ import { useEffect, useRef, useState } from "react";
 const Hobbies = () => {
   const [activeSong, setActiveSong] = useState(null);
 
-  const [isSmallScreen, setIsSmallScreen] = useState(
-  window.innerWidth <= 600
-);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 600);
 
-useEffect(() => {
-  const handleResize = () => {
-    setIsSmallScreen(window.innerWidth <= 600);
-  };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 600);
+    };
 
-  window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize);
 
-  return () => {
-    window.removeEventListener("resize", handleResize);
-  };
-}, []);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const hobbyContent = {
     guitar: guitarData,
@@ -62,9 +60,6 @@ useEffect(() => {
 
     return () => observer.disconnect();
   }, []);
-
-  
-  
 
   return (
     <section className="hobbies">
@@ -102,13 +97,11 @@ useEffect(() => {
               <h1>{hobby.name}</h1>
             </div>
 
-          <div className="hobby-description">
-  {hobby.description.map((item, index) => (
-    <p key={index}>
-      {isSmallScreen ? item.short : item.long}
-    </p>
-  ))}
-</div>
+            <div className="hobby-description">
+              {hobby.description.map((item, index) => (
+                <p key={index}>{isSmallScreen ? item.short : item.long}</p>
+              ))}
+            </div>
             {data?.songs && (
               <div className="songs">
                 {data.songs.map((song) => (
@@ -119,6 +112,18 @@ useEffect(() => {
                       activeSong?.id === song.id ? "active" : ""
                     }`}
                   >
+                    <div
+                      className="song-close"
+                      style={{
+                        display: activeSong?.id === song.id ? "" : "none",
+                      }}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        setActiveSong(null);
+                      }}
+                    >
+                      X
+                    </div>
                     <h2>{song.title}</h2>
 
                     <p>{song.artist}</p>
