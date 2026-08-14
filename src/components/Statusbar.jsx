@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Camera from "./Camera";
 
-const Staturbar = ({ theme, setTheme }) => {
+const Staturbar = ({ theme, setTheme, intro }) => {
   const max = 100;
 
   const [percent] = useState(() => Math.floor(Math.random() * (max + 1)));
@@ -26,37 +26,42 @@ const Staturbar = ({ theme, setTheme }) => {
 
   return (
     <div className="statusbar">
-      <span className="status-time">
-        {clock.toLocaleTimeString("de-DE", {
-          hour: "2-digit",
-          minute: "2-digit",
-        })}
-      </span>
+      <Camera />
+      {intro ? (
+        <></>
+      ) : (
+        <>
+          {" "}
+          <span className="status-time">
+            {clock.toLocaleTimeString("de-DE", {
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+          </span>
+          <div className="status-icons">
+            <div className="battery">
+              <div
+                className="battery-level"
+                style={{
+                  width: `${percent}%`,
+                  background:
+                    percent <= 20
+                      ? "#FF3B30"
+                      : percent <= 50
+                        ? "#FFD60A"
+                        : "#34C759",
+                }}
+              />
+            </div>
 
-      <div className="status-icons">
+            {/* <span className="battery-percent">{percent}%</span> */}
 
-
-        <div className="battery">
-          <div
-            className="battery-level"
-            style={{
-              width: `${percent}%`,
-              background:
-                percent <= 20
-                  ? "#FF3B30"
-                  : percent <= 50
-                    ? "#FFD60A"
-                    : "#34C759",
-            }}
-          />
-        </div>
-<Camera />
-        {/* <span className="battery-percent">{percent}%</span> */}
-
-        <button className="theme-button" onClick={themeMode}>
-          {theme === "light" ? "☀️" : "🌙"}
-        </button>
-      </div>
+            <button className="theme-button" onClick={themeMode}>
+              {theme === "light" ? "☀️" : "🌙"}
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -1,15 +1,19 @@
+import { useState } from "react";
 import Camera from "./Camera";
 import HomeIndicator from "./HomeIndicator";
 import Staturbar from "./Statusbar";
 
-const Device = ({ children, theme, setTheme}) => {
+const Device = ({ children, theme, setTheme, intro }) => {
+  const [test, setTest] = useState(true);
+  setTimeout(() => {
+    setTest(false);
+  }, 100);
   return (
-    <div className="device">
-      <Staturbar theme={theme} setTheme={setTheme}/>
+    <div className="device" style={{ background: test ? "black" : "" }}>
+      <Staturbar theme={theme} setTheme={setTheme} intro={intro} />
 
       <div className="screen">{children}</div>
-      
-      <HomeIndicator />
+      {intro ? <></> : <HomeIndicator />}
     </div>
   );
 };
