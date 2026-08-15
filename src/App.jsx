@@ -51,7 +51,7 @@ function App() {
           path: "contact",
           element: <Contact />,
         },
-         {
+        {
           path: "settings",
           element: <Settings />,
         },
