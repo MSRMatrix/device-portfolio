@@ -1,7 +1,7 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import Icon from "./Icon";
+import Icon from "../Icon";
 import { useContext, useState } from "react";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 
 const Navigation = () => {
   const navigate = useNavigate();

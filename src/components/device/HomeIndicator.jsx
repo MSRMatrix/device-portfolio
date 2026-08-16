@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "@/context/AppContext";
 
 const HomeIndicator = () => {
   const { setAppContext } = useContext(AppContext);
@@ -13,8 +13,6 @@ const HomeIndicator = () => {
       onClick={() => {
         setAppContext(false);
         navigate("/");
-
-        
       }}
     ></div>
   );

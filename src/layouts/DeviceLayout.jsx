@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
 
-import Navigation from "@/components/Navigation";
-import Device from "../components/Device";
+import Navigation from "@/components/navigation/Navigation";
+import Device from "@/components/device/Device";
 import { useContext, useEffect, useState } from "react";
-import Intro from "../components/Intro";
+import Intro from "@/components/Intro";
 
 import { BackgroundSettings } from "../context/BackgroundSettings";
 import { useRef } from "react";

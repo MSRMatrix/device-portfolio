@@ -1,12 +1,12 @@
-import { hobbiesArray } from "@/data/hobbies";
+import { hobbiesArray } from "@/data/hobbies/hobbies";
 import Icon from "@/components/Icon";
 
-import guitarData from "@/data/guitar";
-import writingData from "@/data/writing";
-import sportData from "@/data/sport";
-import codingData from "@/data/coding";
-import dartsData from "@/data/darts";
-import YoutubePlayer from "@/components/YoutubePlayer";
+import guitarData from "@/data/hobbies/guitar";
+import writingData from "@/data/hobbies/writing";
+import sportData from "@/data/hobbies/sport";
+import codingData from "@/data/hobbies/coding";
+import dartsData from "@/data/hobbies/darts";
+import YoutubePlayer from "@/components/media/YoutubePlayer";
 
 import { useEffect, useRef, useState } from "react";
 
