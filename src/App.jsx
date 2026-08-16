@@ -10,8 +10,6 @@ import { useState } from "react";
 import "@/styles/globals.css";
 
 import DeviceLayout from "./layouts/DeviceLayout";
-import livingRoom from "./assets/backgrounds/ayanna-johnson-living-room.jpg";
-import livingRoomSound from "./assets/sounds/living-room.mp3";
 
 import About from "@/pages/About";
 import Projects from "@/pages/Projects";
@@ -24,16 +22,12 @@ import Resume from "./pages/Resume";
 import { BackgroundSettings } from "./context/BackgroundSettings";
 import Background from "./pages/settings/Background";
 import Color from "./pages/settings/Color";
+import { backgroundData } from "./data/backgroundData/backgroundData";
 
 function App() {
   const [appContext, setAppContext] = useState(false);
 
-  const [background, setBackground] = useState({
-    name: "livingRoom",
-    image: livingRoom,
-    style: "calm",
-    sound: livingRoomSound,
-  });
+  const [background, setBackground] = useState(backgroundData[1]);
 
   const router = createBrowserRouter([
     {
@@ -68,16 +62,15 @@ function App() {
           path: "settings",
           element: <Settings />,
           children: [
-    {
-      path: "background",
-      element: <Background />,
-    },
-    {
-      path: "color",
-      element: <Color />,
-    },
-  ],
-
+            {
+              path: "background",
+              element: <Background />,
+            },
+            {
+              path: "color",
+              element: <Color />,
+            },
+          ],
         },
       ],
     },

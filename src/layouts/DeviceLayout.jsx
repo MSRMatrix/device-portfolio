@@ -27,8 +27,6 @@ const {background} = useContext(BackgroundSettings);
 const audioRef = useRef(null);
 
 useEffect(() => {
-  
-  
   if (!background?.sound) {
     console.log(`test`);
     return
@@ -38,7 +36,7 @@ useEffect(() => {
 
   audio.src = background.sound;
   audio.loop = true;
-  audio.volume = 1;
+  audio.volume = 0.2;
 
   audio.play().catch(() => {});
 
@@ -47,11 +45,6 @@ useEffect(() => {
     audio.currentTime = 0;
   };
 }, [background]);
-
-
-console.log(background);
-
-
 
   return (
     <div s style={{
