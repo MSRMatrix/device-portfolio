@@ -10,6 +10,8 @@ import { useState } from "react";
 import "@/styles/globals.css";
 
 import DeviceLayout from "./layouts/DeviceLayout";
+import livingRoom from "./assets/backgrounds/ayanna-johnson-living-room.jpg";
+import livingRoomSound from "./assets/sounds/living-room.mp3";
 
 import About from "@/pages/About";
 import Projects from "@/pages/Projects";
@@ -19,9 +21,20 @@ import Skills from "./pages/Skills";
 import { AppContext } from "./context/AppContext";
 import Settings from "./pages/Settings";
 import Resume from "./pages/Resume";
+import { BackgroundSettings } from "./context/BackgroundSettings";
+import Background from "./pages/settings/Background";
+import Color from "./pages/settings/Color";
 
 function App() {
   const [appContext, setAppContext] = useState(false);
+
+  const [background, setBackground] = useState({
+    name: "livingRoom",
+    image: livingRoom,
+    style: "calm",
+    sound: livingRoomSound,
+  });
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -54,6 +67,17 @@ function App() {
         {
           path: "settings",
           element: <Settings />,
+          children: [
+    {
+      path: "background",
+      element: <Background />,
+    },
+    {
+      path: "color",
+      element: <Color />,
+    },
+  ],
+
         },
       ],
     },
@@ -65,9 +89,11 @@ function App() {
 
   return (
     <>
-      <AppContext.Provider value={{ appContext, setAppContext }}>
-        <RouterProvider router={router} />
-      </AppContext.Provider>
+      <BackgroundSettings.Provider value={{ background, setBackground }}>
+        <AppContext.Provider value={{ appContext, setAppContext }}>
+          <RouterProvider router={router} />
+        </AppContext.Provider>
+      </BackgroundSettings.Provider>
     </>
   );
 }

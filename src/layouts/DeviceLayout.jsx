@@ -2,18 +2,11 @@ import { Outlet } from "react-router-dom";
 
 import Navigation from "@/components/Navigation";
 import Device from "../components/Device";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Intro from "../components/Intro";
 
-import sun from "../assets/backgrounds/mohammad-alizade-sun.jpg"
-import livingRoom from "../assets/backgrounds/ayanna-johnson-living-room.jpg"
-import city from "../assets/backgrounds/eugene-kucheruk-city.jpg"
-import snow from "../assets/backgrounds/nima-mot-snow.jpg"
-
-import livingRoomSound from "../assets/sounds/living-room.mp3"
-import rainySound from "../assets/sounds/rainy.mp3"
-import sunsetSound from "../assets/sounds/sunset.mp3"
-import windySound from "../assets/sounds/windy.mp3"
+import { BackgroundSettings } from "../context/BackgroundSettings";
+import { useRef } from "react";
 
 const DeviceLayout = () => {
   const [theme, setTheme] = useState("dark");
@@ -27,38 +20,37 @@ const DeviceLayout = () => {
   return () => clearTimeout(timer);
 }, []);
 
-const images = [
-  {
-    name: "sun",
-    image: sun,
-    style: "sunset",
-    sound: sunsetSound,
-  },
-  {
-    name: "livingRoom",
-    image: livingRoom,
-    style: "calm",
-    sound: livingRoomSound,
-  },
-  {
-    name: "city",
-    image: city,
-    style: "rainy",
-    sound: rainySound,
-  },
-  {
-    name: "snow",
-    image: snow,
-    style: "windy",
-    sound: windySound,
-  },
-];
-
 // Sound muss intigriert werden und auch buttons die entweder im großen hintergrund verfügbar sind oder nur in handy settings
+// Macher der Bilder müssen in Settings aufgeführt werden und auch die Seite für die Sounds
 
-const [background, setBackground] = useState(images[2])
+const {background} = useContext(BackgroundSettings);
+const audioRef = useRef(null);
 
-console.log(background.image);
+useEffect(() => {
+  
+  
+  if (!background?.sound) {
+    console.log(`test`);
+    return
+  };
+
+  const audio = audioRef.current;
+
+  audio.src = background.sound;
+  audio.loop = true;
+  audio.volume = 1;
+
+  audio.play().catch(() => {});
+
+  return () => {
+    audio.pause();
+    audio.currentTime = 0;
+  };
+}, [background]);
+
+
+console.log(background);
+
 
 
   return (
@@ -70,6 +62,7 @@ console.log(background.image);
     backgroundRepeat: "no-repeat",
   }} className={theme}>
       <div className="device-layout">
+        <audio ref={audioRef} />
         <Device theme={theme} setTheme={setTheme} intro={intro}>
           {intro ? (
             <Intro />

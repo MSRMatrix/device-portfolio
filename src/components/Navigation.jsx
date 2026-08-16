@@ -60,7 +60,7 @@ const Navigation = () => {
         name: "Einstellunge",
         path: "/settings",
         icon: "faGear",
-        disabled: true,
+        disabled: false,
       },
     ],
   ];
