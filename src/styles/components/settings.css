@@ -1,0 +1,67 @@
+.settings-app {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+.settings-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+  width: fit-content;
+  max-width: 100%;
+
+  margin: 0 auto 20px;
+  padding: 4px;
+
+  background: var(--screen-surface);
+
+  border-radius: 14px;
+
+  box-shadow: 0 4px 12px var(--screen-shadow);
+}
+
+.settings-item {
+  padding: 8px 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  font-size: 0.85rem;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.settings-item:hover {
+  color: var(--text-primary);
+}
+
+.settings-item.active {
+  background: var(--icon-background);
+
+  color: var(--accent);
+}
+
+.settings-content {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+}

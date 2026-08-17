@@ -6,6 +6,7 @@
 @import "./components/camera.css";
 @import "./components/statusbar.css";
 @import "./components/loadingScreen.css";
+@import "./components/settings.css";
 
 @import "./pages/hobbies.css";
 @import "./pages/about.css";

@@ -17,24 +17,28 @@ const Navigation = () => {
         path: "/about",
         icon: "faCircleInfo",
         disabled: false,
+        color: "",
       },
       {
         name: "Skills",
         path: "/skills",
         icon: "faScrewdriverWrench",
         disabled: false,
+        color: "",
       },
       {
         name: "Projekte",
         path: "/projects",
         icon: "faLaptop",
         disabled: false,
+        color: "",
       },
       {
         name: "Werdegang",
         path: "/resume",
         icon: "faBriefcase",
         disabled: false,
+        color: "",
       },
     ],
     [
@@ -43,24 +47,28 @@ const Navigation = () => {
         path: "/hobbies",
         icon: "faGuitar",
         disabled: false,
+        color: "",
       },
       {
         name: "Kontakt",
         path: "/contact",
         icon: "faAt",
         disabled: false,
+        color: "",
       },
       {
         name: "Musik",
         path: "/music",
         icon: "faHeadphones",
         disabled: true,
+        color: "",
       },
       {
         name: "Einstellunge",
         path: "/settings",
         icon: "faGear",
         disabled: false,
+        color: "",
       },
     ],
   ];
@@ -85,35 +93,42 @@ const Navigation = () => {
 
   return (
     <nav className={`device-app ${appContext ? "hide" : "app-open"}`}>
-      {counter > 0 ? (
+      {counter > 0 && (
         <div
           className="navigation-button left"
           onClick={() => setCounter(counter - 1)}
         >
-          <Icon iconName={"faCircleArrowLeft"} />
+          ‹
         </div>
-      ) : (
-        <></>
       )}
-      {navArray[counter].map((item) => (
-        <div
-          key={item.path}
-          className={`screen-link ${openingApp === item.path ? "opening" : ""}`}
-          onClick={() => openApp(item)}
-        >
-          <div className={`app-icon ${item.disabled ? "disabled" : ""}`}>
-            <Icon iconName={item.icon} />
-          </div>
 
-          <span>{item.name}</span>
-        </div>
-      ))}
+      <div className="app-grid">
+        {navArray[counter].map((item) => (
+          <div
+            key={item.path}
+            className={`
+            screen-link
+            ${openingApp === item.path ? "opening" : ""}
+            ${item.disabled ? "disabled" : ""}
+          `}
+            style={{
+              "--app-color": item.color,
+            }}
+            onClick={() => openApp(item)}
+          >
+            <span>{item.name}</span>
+
+            {item.disabled && <small>Nicht verfügbar</small>}
+          </div>
+        ))}
+      </div>
+
       {counter < navArray.length - 1 && (
         <div
           className="navigation-button right"
           onClick={() => setCounter(counter + 1)}
         >
-          <Icon iconName={"faCircleArrowRight"} />
+          ›
         </div>
       )}
     </nav>

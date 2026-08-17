@@ -1,219 +1,363 @@
 @import "../colors.css";
 
-.device-app,
-.app-in-use,
-.loadingScreen {
+.device-app {
   position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.app-grid {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  gap: 2px;
+
+  background: var(--screen-background);
+}
+
+.hide{
+  display: none;
 }
 
 .screen-link {
+  position: relative;
+
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      color-mix(
+        in srgb,
+        var(--app-color) 15%,
+        transparent
+      ),
+      transparent 70%
+    );
+
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--app-color) 25%,
+      transparent
+    );
 
   color: var(--text-primary);
-  text-decoration: none;
 
   cursor: pointer;
 
   transition:
-    transform 0.5s ease,
-    opacity 0.3s ease;
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    opacity 0.3s ease,
+    transform 0.4s ease;
+}
 
-  .app-icon {
-    width: 80px;
-    height: 80px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* ============================
+   GLOW
+============================ */
 
-    background: var(--icon-background);
+.screen-link::before {
+  content: "";
 
-    border-radius: 50%;
+  position: absolute;
 
-    box-shadow: 0 8px 15px var(--screen-shadow);
+  width: 180px;
+  height: 180px;
 
-    color: var(--icon-color);
+  border-radius: 50%;
 
-    transition:
-      transform 0.5s ease,
-      background 0.3s ease;
+  background: var(--app-color);
 
-    svg {
-      color: var(--accent);
-      font-size: 35px;
+  opacity: 0.08;
 
-      transition: 0.25s;
-    }
+  filter: blur(60px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+
+/* ============================
+   TEXT
+============================ */
+
+.screen-link span {
+  position: relative;
+
+  z-index: 2;
+
+  color: var(--text-primary);
+
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+
+  text-align: center;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* ============================
+   HOVER
+============================ */
+
+.screen-link:hover {
+  background:
+    radial-gradient(
+      circle at center,
+      color-mix(
+        in srgb,
+        var(--app-color) 28%,
+        transparent
+      ),
+      transparent 75%
+    );
+
+  box-shadow:
+    inset 0 0 50px
+    color-mix(
+      in srgb,
+      var(--app-color) 18%,
+      transparent
+    );
+}
+
+.screen-link:hover::before {
+  opacity: 0.25;
+
+  transform: scale(1.4);
+}
+
+.screen-link:hover span {
+  color: var(--app-color);
+
+  transform: scale(1.08);
+}
+
+
+/* ============================
+   OPENING
+============================ */
+
+.screen-link.opening {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      color-mix(
+        in srgb,
+        var(--app-color) 35%,
+        transparent
+      ),
+      var(--screen-background) 80%
+    );
+
+  border: none;
+
+  animation: appOpening 0.5s ease forwards;
+}
+
+.screen-link.opening span {
+  color: var(--app-color);
+
+  font-size: 1.5rem;
+}
+
+.screen-link.opening::before {
+  opacity: 0.35;
+
+  transform: scale(2);
+}
+
+
+/* ============================
+   ANDERE APPS AUSBLENDEN
+============================ */
+
+.device-app:has(.opening) .screen-link:not(.opening) {
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+/* ============================
+   NAVIGATION AUSBLENDEN
+============================ */
+
+.device-app:has(.opening) .navigation-button {
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+/* ============================
+   OPENING ANIMATION
+============================ */
+
+@keyframes appOpening {
+  from {
+    opacity: 1;
+
+    transform: scale(1);
   }
 
-  span {
-    color: var(--text-primary);
+  to {
+    opacity: 1;
 
-    font-size: 14px;
-    text-align: center;
-  }
-
-  &:hover {
-    .app-icon {
-      transform: translateY(-3px) scale(1.05);
-      background: var(--accent);
-    }
-
-    svg {
-      color: white;
-    }
-
-    span {
-      color: var(--accent);
-    }
-  }
-
-  &.active {
-    .app-icon {
-      background: var(--accent);
-    }
-
-    svg {
-      color: white;
-    }
-
-    span {
-      color: var(--accent);
-      font-weight: 600;
-    }
-  }
-
-  &.opening {
-    position: absolute;
-    inset: 0;
-
-    z-index: 100;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: var(--screen-background);
-
-    transform: none;
-
-    .app-icon {
-      transform: scale(1.5);
-      background: var(--accent);
-
-      svg {
-        color: white;
-      }
-    }
-
-    span {
-      display: none;
-    }
+    transform: scale(1.05);
   }
 }
 
-.device-app:has(.opening) {
-  .screen-link:not(.opening) {
-    opacity: 0;
-    pointer-events: none;
-  }
+
+/* ============================
+   DISABLED
+============================ */
+
+.screen-link.disabled {
+  cursor: not-allowed;
+
+  opacity: 0.3;
+
+  filter: grayscale(0.7);
 }
 
-@media (max-width: 466px) {
-  .screen-link {
-    .app-icon {
-      width: 60px;
-      height: 60px;
-
-      svg {
-        font-size: 25px;
-      }
-    }
-  }
+.screen-link.disabled::before {
+  opacity: 0;
 }
 
-.hide {
-  display: none;
+.screen-link.disabled:hover {
+  background:
+    radial-gradient(
+      circle at center,
+      color-mix(
+        in srgb,
+        var(--screen-surface) 30%,
+        transparent
+      ),
+      transparent 75%
+    );
+
+  box-shadow: none;
 }
 
+.screen-link.disabled:hover span {
+  color: var(--text-primary);
+
+  transform: none;
+}
+
+
+/* ============================
+   NAVIGATION
+============================ */
 
 .navigation-button {
-    position: absolute;
+  position: absolute;
 
-    top: 50%;
+  top: 50%;
 
-    width: 42px;
-    height: 42px;
+  z-index: 200;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 30px;
+  height: 60px;
 
-    transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background: var(--icon-background);
+  transform: translateY(-50%);
 
-    color: var(--accent);
+  background:
+    color-mix(
+      in srgb,
+      var(--screen-surface) 70%,
+      transparent
+    );
 
-    border: 1px solid transparent;
+  color: var(--text-secondary);
 
-    border-radius: 50%;
+  font-size: 2rem;
 
-    box-shadow: 0 6px 15px var(--screen-shadow);
+  cursor: pointer;
 
-    cursor: pointer;
+  opacity: 0.5;
 
-    z-index: 20;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.navigation-button.left {
-    left: 10px;
-}
-
-.navigation-button.right {
-    right: 10px;
+  transition:
+    opacity 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease;
 }
 
 .navigation-button:hover {
-    background: var(--accent);
+  background:
+    color-mix(
+      in srgb,
+      var(--screen-surface) 90%,
+      transparent
+    );
 
-    color: white;
+  color: var(--accent);
 
-    border-color: var(--accent);
-
-    box-shadow: 0 8px 20px var(--screen-shadow);
+  opacity: 1;
 }
 
-.navigation-button.left:hover {
-    transform: translateY(-50%) scale(1.08) translateX(-2px);
+.navigation-button.left {
+  left: 0;
 }
 
-.navigation-button.right:hover {
-    transform: translateY(-50%) scale(1.08) translateX(2px);
+.navigation-button.right {
+  right: 0;
 }
 
-.navigation-button:active {
-    transform: translateY(-50%) scale(0.92);
-}
 
-.navigation-button svg {
-    font-size: 18px;
-}
+/* ============================
+   MOBILE
+============================ */
 
-.disabled{
-  cursor: not-allowed;
-  svg{
-    color: white !important;
+@media (max-width: 466px) {
+
+  .screen-link span {
+    font-size: 0.95rem;
   }
+
+  .navigation-button {
+    width: 24px;
+    height: 50px;
+
+    font-size: 1.5rem;
+  }
+
 }
+

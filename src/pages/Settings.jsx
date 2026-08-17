@@ -17,23 +17,25 @@ const Settings = () => {
   ];
 
   return (
-    <section className="settings-app">
-      <div className="settings-navigation">
-        {navArray.map((item) => (
-          <div
-            key={item.id}
-            className="settings-item"
-            onClick={() => navigate(item.path)}
-          >
-            <span>{item.name}</span>
-          </div>
-        ))}
-      </div>
+  <section className="settings-app">
 
-      <div className="settings-content">
-        <Outlet />
-      </div>
-    </section>
+  <nav className="settings-navigation">
+    {navArray.map((item) => (
+      <button
+        key={item.id}
+        className="settings-item"
+        onClick={() => navigate(item.path)}
+      >
+        {item.name}
+      </button>
+    ))}
+  </nav>
+
+  <div className="settings-content">
+    <Outlet />
+  </div>
+
+</section>
   );
 };
 
