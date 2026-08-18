@@ -91,48 +91,58 @@ const Navigation = () => {
     }, 1000);
   }
 
-  return (
-    <nav className={`device-app ${appContext ? "hide" : "app-open"}`}>
-      {counter > 0 && (
-        <div
-          className="navigation-button left"
-          onClick={() => setCounter(counter - 1)}
-        >
-          ‹
-        </div>
-      )}
-
-      <div className="app-grid">
-        {navArray[counter].map((item) => (
-          <div
-            key={item.path}
-            className={`
-            screen-link
-            ${openingApp === item.path ? "opening" : ""}
-            ${item.disabled ? "disabled" : ""}
-          `}
-            style={{
-              "--app-color": item.color,
-            }}
-            onClick={() => openApp(item)}
-          >
-            <span>{item.name}</span>
-
-            {item.disabled && <small>Nicht verfügbar</small>}
-          </div>
-        ))}
+ return (
+  <nav className={`device-app ${appContext ? "hide" : "app-open"}`}>
+    {counter > 0 && (
+      <div
+        className="navigation-button left"
+        onClick={() => setCounter(counter - 1)}
+      >
+        ←
       </div>
+    )}
 
-      {counter < navArray.length - 1 && (
+    <div className="navigation-grid">
+      {navArray[counter].map((item, index) => (
         <div
-          className="navigation-button right"
-          onClick={() => setCounter(counter + 1)}
+          key={item.path}
+          className={`screen-link ${
+            openingApp === item.path ? "opening" : ""
+          } ${item.disabled ? "disabled" : ""}`}
+          style={{
+            "--item-color": item.color || "var(--accent)",
+          }}
+          onClick={() => openApp(item)}
         >
-          ›
+          <span className="screen-number">
+            {String(index + 1).padStart(2, "0")}
+          </span>
+
+          <div className="screen-content">
+            <span className="screen-name">{item.name}</span>
+
+            <span className="screen-line" />
+
+            <span className="screen-action">
+              Öffnen <span>↗</span>
+            </span>
+          </div>
+
+          <span className="screen-corner">01</span>
         </div>
-      )}
-    </nav>
-  );
+      ))}
+    </div>
+
+    {counter < navArray.length - 1 && (
+      <div
+        className="navigation-button right"
+        onClick={() => setCounter(counter + 1)}
+      >
+        →
+      </div>
+    )}
+  </nav>
+);
 };
 
 export default Navigation;
