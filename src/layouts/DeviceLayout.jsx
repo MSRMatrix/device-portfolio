@@ -15,7 +15,7 @@ const DeviceLayout = () => {
   useEffect(() => {
   const timer = setTimeout(() => {
     setIntro(false);
-  }, 12000);
+  }, 4000);
 
   return () => clearTimeout(timer);
 }, []);
@@ -28,7 +28,6 @@ const audioRef = useRef(null);
 
 useEffect(() => {
   if (!background?.sound) {
-    console.log(`test`);
     return
   };
 

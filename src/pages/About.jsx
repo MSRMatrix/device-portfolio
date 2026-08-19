@@ -1,3 +1,5 @@
+import profileImage from "../assets/me/Michael-Santos-Rolo.jpg"
+
 const About = () => {
   const aboutArray = [
     {
@@ -45,6 +47,24 @@ const About = () => {
   ];
   return (
     <div className="about-app">
+      <div className="profile-header">
+
+  <div className="profile-image">
+    <img
+      src={profileImage}
+      alt="Michael Santos Rolo"
+    />
+  </div>
+
+  <div className="profile-name">
+    Michael Santos Rolo
+  </div>
+
+  <div className="profile-role">
+    Web Developer
+  </div>
+
+</div>
       {aboutArray.map((section) => (
         <article key={section.id} className="about-card">
           <h2>{section.title}</h2>

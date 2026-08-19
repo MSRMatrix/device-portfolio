@@ -5,8 +5,6 @@ const Intro = () => {
 
   const textArray = [
     "Michael Santos Rolo",
-    "präsentiert",
-    "sein Portfolio",
   ];
 
   useEffect(() => {
