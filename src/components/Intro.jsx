@@ -1,29 +1,32 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import Icon from "./Icon";
+import { BackgroundSettings } from "../context/BackgroundSettings";
+import { backgroundData } from "../data/backgroundData/backgroundData";
 
-const Intro = () => {
-  const [counter, setCounter] = useState(0);
+const Intro = ({ setIntro }) => {
+  const [power, setPower] = useState(false);
+  const { setBackground } = useContext(BackgroundSettings);
 
-  const textArray = [
-    "Michael Santos Rolo",
-  ];
+  const turnOn = () => {
+    if (power) return;
 
-  useEffect(() => {
-    if (counter >= textArray.length - 1) return;
-
-    const timer = setTimeout(() => {
-      setCounter((current) => current + 1);
-    }, 4000);
-
-    return () => clearTimeout(timer);
-  }, [counter]);
+    setPower(true);
+    setBackground(backgroundData[1])
+    setTimeout(() => {
+      setIntro(false);
+    }, 1800);
+  };
 
   return (
-  <div
-    key={counter}
-    className="intro-text"
-  >
-    {textArray[counter]}
-  </div>
+    <div className={`intro-screen ${power ? "power-on" : ""}`}>
+      <button
+        className="power-button"
+        onClick={turnOn}
+        aria-label="Portfolio einschalten"
+      >
+        <Icon iconName="faPowerOff" />
+      </button>
+    </div>
   );
 };
 

@@ -1,59 +1,74 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faAt,
+  // Hobbies
   faGuitar,
-  faBriefcase,
-  faLaptop,
-  faCircleInfo,
-  faScrewdriverWrench,
-  faEnvelope,
-  faPhone,
-  faLocationDot,
-  faGlobe,
   faPen,
   faDumbbell,
   faCode,
   faBullseye,
-  faGear,
+  // Kontakt
+  faEnvelope,
+  faPhone,
+  faLocationDot,
+  // Für den Fall falls ein Icon nichtmehr geht
   faCircleQuestion,
-  faHeadphones,
+  // Navigation
   faCircleArrowLeft,
-  faCircleArrowRight
+  faCircleArrowRight,
+  // Intro
+  faPowerOff,
+  // Werdegang
+  faGraduationCap,
+  faHammer,
+  faCompass,
+  faCarSide,
+  faComputer,
+  faIndustry,
+  // Sound
+  faVolume,
+  faVolumeXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const iconMap = {
-  faAt: faAt,
+  // Hobbies
   faGuitar: faGuitar,
-  faBriefcase: faBriefcase,
-  faLaptop: faLaptop,
-  faCircleInfo: faCircleInfo,
-  faScrewdriverWrench: faScrewdriverWrench,
+  faPen: faPen,
+  faDumbbell: faDumbbell,
+  faCode: faCode,
+  faBullseye: faBullseye,
+  // Kontakt
   faEnvelope: faEnvelope,
   faPhone: faPhone,
   faLocationDot: faLocationDot,
   faGithub: faGithub,
   faLinkedin: faLinkedin,
-  faGlobe: faGlobe,
-  faPen: faPen,
-  faDumbbell: faDumbbell,
-  faCode: faCode,
-  faBullseye: faBullseye,
-  faGear: faGear,
-  faCircleQuestion:faCircleQuestion,
-  faHeadphones: faHeadphones,
+  // Für den Fall falls ein Icon nichtmehr geht
+  faCircleQuestion: faCircleQuestion,
+  // Navigation
   faCircleArrowLeft: faCircleArrowLeft,
   faCircleArrowRight: faCircleArrowRight,
+  // Intro
+  faPowerOff: faPowerOff,
+  // Werdegang
+  faGraduationCap: faGraduationCap,
+  faHammer: faHammer,
+  faCompass: faCompass,
+  faCarSide: faCarSide,
+  faComputer: faComputer,
+  faIndustry: faIndustry,
+  faVolume: faVolume,
+  faVolumeXmark: faVolumeXmark,
 };
 
 const Icon = ({ iconName }) => {
-    const icon = iconMap[iconName] || faCircleQuestion;
+  const icon = iconMap[iconName] || faCircleQuestion;
 
-    return (
-        <div className="icon">
-            <FontAwesomeIcon icon={icon} />
-        </div>
-    );
+  return (
+    <div className="icon">
+      <FontAwesomeIcon icon={icon} />
+    </div>
+  );
 };
 export default Icon;

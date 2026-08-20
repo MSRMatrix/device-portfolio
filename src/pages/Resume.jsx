@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Icon from "../components/Icon";
 
 const Resume = () => {
   const [active, setActive] = useState(null);
@@ -7,7 +8,7 @@ const Resume = () => {
     {
       id: 1,
       info: "Oberschule Artland",
-      icon: "🎓",
+      icon: "faGraduationCap",
       role: "Hauptschulabschluss",
       date: "07/2015",
       about:
@@ -17,7 +18,7 @@ const Resume = () => {
     {
       id: 2,
       info: "Berufsbildende Schule Bersenbrück",
-      icon: "🪵",
+      icon: "faHammer",
       role: "Berufsvorbereitendes Jahr Holztechnik",
       date: "09.2015 - 07.2016",
       about:
@@ -26,7 +27,7 @@ const Resume = () => {
     {
       id: 3,
       info: "Bildungswerk der Niedersächsischen Wirtschaft GmbH",
-      icon: "🧭",
+      icon: "faCompass",
       role: "Ausbildungsvorbereitendes Jahr",
       date: "08.2017 - 07.2018",
       about:
@@ -35,7 +36,7 @@ const Resume = () => {
     {
       id: 4,
       info: "Autohaus Trias GmbH",
-      icon: "🚗",
+      icon: "faCarSide",
       role: "Automobilbranche",
       date: "08.2018 - 01.2023",
       about:
@@ -44,7 +45,7 @@ const Resume = () => {
     {
       id: 5,
       info: "DCI Weiterbildung zum Web- und Softwareentwickler",
-      icon: "💻",
+      icon: "faComputer",
       role: "IT-Weiterbildung",
       date: "05.2023 - 07.2024",
       about:
@@ -53,7 +54,7 @@ const Resume = () => {
     {
       id: 6,
       info: "GIGANT GmbH",
-      icon: "⚙️",
+      icon: "faIndustry",
       role: "Monteur von Achssystemen",
       date: "02.2026 - jetzt",
       about:
@@ -71,7 +72,7 @@ const Resume = () => {
             className={`resume-item ${section.current ? "current" : ""}`}
           >
             <div className="resume-dot">
-              <span>{section.icon}</span>
+              <Icon iconName={section.icon} />
             </div>
 
             <div

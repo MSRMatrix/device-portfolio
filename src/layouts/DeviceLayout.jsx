@@ -12,14 +12,6 @@ const DeviceLayout = () => {
   const [theme, setTheme] = useState("dark");
   const [intro, setIntro] = useState(true);
 
-  useEffect(() => {
-  const timer = setTimeout(() => {
-    setIntro(false);
-  }, 4000);
-
-  return () => clearTimeout(timer);
-}, []);
-
 // Sound muss intigriert werden und auch buttons die entweder im großen hintergrund verfügbar sind oder nur in handy settings
 // Macher der Bilder müssen in Settings aufgeführt werden und auch die Seite für die Sounds
 
@@ -46,7 +38,7 @@ useEffect(() => {
 }, [background]);
 
   return (
-    <div s style={{
+    <div style={{
     height: "100%",
     backgroundImage: `url(${background.image})`,
     backgroundSize: "cover",
@@ -57,7 +49,9 @@ useEffect(() => {
         <audio ref={audioRef} />
         <Device theme={theme} setTheme={setTheme} intro={intro}>
           {intro ? (
-            <Intro />
+            <Intro 
+            intro={intro}
+            setIntro={setIntro} />
           ) : (
             <div className="app-content">
               <Outlet />

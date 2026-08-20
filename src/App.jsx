@@ -22,12 +22,11 @@ import Resume from "./pages/Resume";
 import { BackgroundSettings } from "./context/BackgroundSettings";
 import Background from "./pages/settings/Background";
 import Color from "./pages/settings/Color";
-import { backgroundData } from "./data/backgroundData/backgroundData";
 
 function App() {
   const [appContext, setAppContext] = useState(false);
 
-  const [background, setBackground] = useState(backgroundData[1]);
+  const [background, setBackground] = useState([]);
 
   const router = createBrowserRouter([
     {

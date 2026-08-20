@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Camera from "./Camera";
+import Icon from "../Icon";
 
 const Staturbar = ({ theme, setTheme, intro }) => {
   const max = 100;
@@ -31,14 +32,20 @@ const Staturbar = ({ theme, setTheme, intro }) => {
         <></>
       ) : (
         <>
-          {" "}
           <span className="status-time">
             {clock.toLocaleTimeString("de-DE", {
               hour: "2-digit",
               minute: "2-digit",
             })}
+            
+            {/* <div onClick={() => setSound(!sound)}>
+              <Icon iconName={sound ? "faVolume" : "faVolumeXmark"} />
+            </div> */}
+            
           </span>
           <div className="status-icons">
+            
+
             <div className="battery">
               <div
                 className="battery-level"

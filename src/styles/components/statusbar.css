@@ -24,6 +24,11 @@
   gap: 10px;
 }
 
+.status-time{
+  display: flex;
+  gap: 10px;
+}
+
 .battery {
   width: 24px;
 
