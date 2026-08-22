@@ -21,7 +21,8 @@ import Settings from "./pages/Settings";
 import Resume from "./pages/Resume";
 import { BackgroundSettings } from "./context/BackgroundSettings";
 import Background from "./pages/settings/Background";
-import Color from "./pages/settings/Color";
+import Sound from "./pages/settings/Sound";
+import DeviceColors from "./pages/settings/DeviceColors";
 
 function App() {
   const [appContext, setAppContext] = useState(false);
@@ -67,7 +68,11 @@ function App() {
             },
             {
               path: "color",
-              element: <Color />,
+              element: <DeviceColors />,
+            },
+             {
+              path: "sound",
+              element: <Sound />,
             },
           ],
         },

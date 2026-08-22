@@ -75,6 +75,7 @@
 
 .screen {
   height: 90%;
+  position: relative;
 }
 
 .resume-app::-webkit-scrollbar,

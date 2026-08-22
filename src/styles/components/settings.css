@@ -60,8 +60,175 @@
 
 .settings-content {
   flex: 1;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 0;
 
   overflow-y: auto;
 }
+
+/* Background Part */
+
+.background-selection {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+.background-option {
+  position: relative;
+
+  min-height: 180px;
+  padding: 20px;
+
+  display: flex;
+  align-items: flex-end;
+
+  background-color: var(--screen-background);
+
+  color: var(--text-primary);
+  border: 1px solid var(--screen-shadow);
+
+  overflow: hidden;
+  cursor: pointer;
+
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--screen-background) 90%, transparent),
+    color-mix(in srgb, var(--screen-background) 10%, transparent)
+  );
+}
+
+.background-content {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.background-credit-title {
+  position: absolute;
+  top: -145px;
+  left: 0;
+
+  padding: 5px 8px;
+
+  background: rgb(0 0 0 / 45%);
+
+  color: var(--text-primary);
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  backdrop-filter: blur(4px);
+}
+
+.background-option-name {
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.background-option-line {
+  width: 35px;
+  height: 2px;
+  margin: 10px 0;
+
+  background: var(--item-color);
+
+  transition:
+    width 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.background-credits {
+  display: flex;
+  gap: 6px;
+}
+
+.background-credit-button {
+  padding: 5px 8px;
+
+  background: rgb(0 0 0 / 45%);
+
+  color: var(--text-secondary);
+  border: 1px solid rgb(255 255 255 / 10%);
+
+  font-size: 0.6rem;
+  text-decoration: none;
+
+  backdrop-filter: blur(4px);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.background-credit-button:hover {
+  background: rgb(0 0 0 / 65%);
+
+  color: var(--text-primary);
+  border-color: var(--item-color);
+}
+
+.background-option:hover {
+  border-color: var(--item-color);
+}
+
+.background-option:hover .background-option-name {
+  color: var(--item-color);
+  transform: translateX(4px);
+}
+
+.background-option:hover .background-option-line {
+  width: 70px;
+  box-shadow: 0 0 12px var(--item-color);
+}
+
+.background-option.active {
+  border-color: var(--item-color);
+}
+
+.background-option.active .background-option-name {
+  color: var(--item-color);
+}
+
+.background-option.active .background-option-line {
+  width: 70px;
+  box-shadow: 0 0 12px var(--item-color);
+}
+
+.background-option:active {
+  transform: scale(0.98);
+}
+
+.background-option:disabled {
+  cursor: default;
+}
+
+
+/* Color */
+

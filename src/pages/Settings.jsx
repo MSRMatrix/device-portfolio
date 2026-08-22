@@ -12,7 +12,12 @@ const Settings = () => {
     {
       id: 2,
       name: "Handyfarben anpassen",
-      path: "color",
+      path: "device-colors",
+    },
+    {
+      id: 3,
+      name: "Lautstärke anpassen",
+      path: "sound",
     },
   ];
 

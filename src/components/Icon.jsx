@@ -27,6 +27,10 @@ import {
   // Sound
   faVolume,
   faVolumeXmark,
+// Home-Indicator
+  faChevronLeft,
+  faCircle,
+  faSquare,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -60,6 +64,10 @@ const iconMap = {
   faIndustry: faIndustry,
   faVolume: faVolume,
   faVolumeXmark: faVolumeXmark,
+// Home-Indicator
+faChevronLeft: faChevronLeft,
+faCircle: faCircle,
+faSquare: faSquare,
 };
 
 const Icon = ({ iconName }) => {

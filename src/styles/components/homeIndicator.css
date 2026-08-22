@@ -2,28 +2,24 @@
 
 .home-indicator {
   position: absolute;
-
-  bottom: 10px;
+  bottom: -3px;
   left: 50%;
-
   transform: translateX(-50%);
 
-  width: 120px;
-  height: 5px;
+  width: 70%;
+  height: 40px;
 
-  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  background: var(--text-primary);
-
-  opacity: 0.35;
-
-  transition:
-    opacity 0.2s ease,
-    transform 0.15s ease;
+  color: var(--text-primary);
+  opacity: 0.4;
 
   z-index: 20;
-
   cursor: pointer;
+
+  transition: opacity 0.2s ease;
 }
 
 .home-indicator:hover {
@@ -31,7 +27,5 @@
 }
 
 .home-indicator:active {
-  transform: translateX(-50%) scaleX(0.92);
-
   opacity: 1;
 }
