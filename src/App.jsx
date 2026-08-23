@@ -21,13 +21,20 @@ import Settings from "./pages/Settings";
 import Resume from "./pages/Resume";
 import { BackgroundSettings } from "./context/BackgroundSettings";
 import Background from "./pages/settings/Background";
-import Sound from "./pages/settings/Sound";
+import AudioSettings from "./pages/settings/AudioSettings";
 import DeviceColors from "./pages/settings/DeviceColors";
+import { AudioContext } from "./context/AudioContext";
 
 function App() {
   const [appContext, setAppContext] = useState(false);
-
   const [background, setBackground] = useState([]);
+  const [audioContext, setAudioContext] = useState({
+    sound: null,
+    volume: 0.2,
+    muted: false,
+    playing: false,
+    loop: true,
+  });
 
   const router = createBrowserRouter([
     {
@@ -67,12 +74,12 @@ function App() {
               element: <Background />,
             },
             {
-              path: "color",
+              path: "device-colors",
               element: <DeviceColors />,
             },
-             {
-              path: "sound",
-              element: <Sound />,
+            {
+              path: "audio-settings",
+              element: <AudioSettings />,
             },
           ],
         },
@@ -86,11 +93,13 @@ function App() {
 
   return (
     <>
-      <BackgroundSettings.Provider value={{ background, setBackground }}>
-        <AppContext.Provider value={{ appContext, setAppContext }}>
-          <RouterProvider router={router} />
-        </AppContext.Provider>
-      </BackgroundSettings.Provider>
+      <AudioContext.Provider value={{ audioContext, setAudioContext }}>
+        <BackgroundSettings.Provider value={{ background, setBackground }}>
+          <AppContext.Provider value={{ appContext, setAppContext }}>
+            <RouterProvider router={router} />
+          </AppContext.Provider>
+        </BackgroundSettings.Provider>
+      </AudioContext.Provider>
     </>
   );
 }

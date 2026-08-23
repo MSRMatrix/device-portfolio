@@ -17,7 +17,7 @@ const Settings = () => {
     {
       id: 3,
       name: "Lautstärke anpassen",
-      path: "sound",
+      path: "audio-settings",
     },
   ];
 

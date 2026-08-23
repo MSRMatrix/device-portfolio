@@ -1,21 +1,49 @@
 const DeviceColors = () => {
-// Hier muss styled angewendet werden über die klasse device
+  const handleChange = (e) => {
+    console.log(e.target.name);
+    console.log(e.target.value);
+
+  };
 
   return (
     <div className="device-colors">
-      <label>
-        Hintergrund
-        <input
-          type="color"
-        />
-      </label>
+      <div className="device-color">
+        <div className="device-color-info">
+          <span className="device-color-name">
+            Hintergrund
+          </span>
 
-      <label>
-        Rahmen
+          <span className="device-color-description">
+            Hintergrundfarbe des Geräts
+          </span>
+        </div>
+
         <input
+        name="device"
           type="color"
+          className="device-color-input"
+          onChange={handleChange}
         />
-      </label>
+      </div>
+
+      <div className="device-color">
+        <div className="device-color-info">
+          <span className="device-color-name">
+            Rahmen
+          </span>
+
+          <span className="device-color-description">
+            Farbe des Geräterahmens
+          </span>
+        </div>
+
+        <input
+        name="frame"
+          type="color"
+          className="device-color-input"
+          onChange={handleChange}
+        />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Camera from "./Camera";
 import Icon from "../Icon";
+import { AudioContext } from "../../context/AudioContext";
 
 const Staturbar = ({ theme, setTheme, intro }) => {
   const max = 100;
@@ -8,6 +9,7 @@ const Staturbar = ({ theme, setTheme, intro }) => {
   const [percent] = useState(() => Math.floor(Math.random() * (max + 1)));
 
   const [clock, setClock] = useState(new Date());
+  const { audioContext, setAudioContext } = useContext(AudioContext);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -25,6 +27,14 @@ const Staturbar = ({ theme, setTheme, intro }) => {
     }
   }
 
+  const toggleMute = () => {
+    setAudioContext((prev) => ({
+      ...prev,
+      muted: !prev.muted,
+      volume: prev.muted ? 0.2 : 0,
+    }));
+  };
+
   return (
     <div className="statusbar">
       <Camera />
@@ -37,15 +47,14 @@ const Staturbar = ({ theme, setTheme, intro }) => {
               hour: "2-digit",
               minute: "2-digit",
             })}
-            
-            {/* <div onClick={() => setSound(!sound)}>
-              <Icon iconName={sound ? "faVolume" : "faVolumeXmark"} />
-            </div> */}
-            
+
+            <button onClick={toggleMute}>
+              <Icon
+                iconName={audioContext.muted ? "faVolumeXmark" : "faVolumeHigh"}
+              />
+            </button>
           </span>
           <div className="status-icons">
-            
-
             <div className="battery">
               <div
                 className="battery-level"
