@@ -11,7 +11,7 @@ const Intro = ({ setIntro }) => {
     if (power) return;
 
     setPower(true);
-    setBackground(backgroundData[1])
+    setBackground(backgroundData[2])
     setTimeout(() => {
       setIntro(false);
     }, 1800);

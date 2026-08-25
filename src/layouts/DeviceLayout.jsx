@@ -8,6 +8,7 @@ import Intro from "@/components/Intro";
 import { BackgroundSettings } from "../context/BackgroundSettings";
 import { useRef } from "react";
 import { AudioContext } from "../context/AudioContext";
+import { DeviceColorContext } from "../context/DeviceColorContext";
 
 const DeviceLayout = () => {
   const [theme, setTheme] = useState("dark");
@@ -15,6 +16,7 @@ const DeviceLayout = () => {
 
   const { background } = useContext(BackgroundSettings);
   const { audioContext, setAudioContext } = useContext(AudioContext);
+  const {deviceColorContext} = useContext(DeviceColorContext);
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -71,7 +73,7 @@ const DeviceLayout = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className={theme}
+      className={!deviceColorContext.device || !deviceColorContext.frame ? theme: ""}
     >
       <div className="device-layout">
         <audio ref={audioRef} />

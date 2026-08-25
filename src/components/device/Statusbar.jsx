@@ -19,13 +19,9 @@ const Staturbar = ({ theme, setTheme, intro }) => {
     return () => clearInterval(timer);
   }, []);
 
-  function themeMode() {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  }
+  const themeMode = () => {
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  };
 
   const toggleMute = () => {
     setAudioContext((prev) => ({
@@ -48,11 +44,11 @@ const Staturbar = ({ theme, setTheme, intro }) => {
               minute: "2-digit",
             })}
 
-            <button onClick={toggleMute}>
+            <div onClick={toggleMute}>
               <Icon
                 iconName={audioContext.muted ? "faVolumeXmark" : "faVolumeHigh"}
               />
-            </button>
+            </div>
           </span>
           <div className="status-icons">
             <div className="battery">
@@ -71,10 +67,9 @@ const Staturbar = ({ theme, setTheme, intro }) => {
             </div>
 
             {/* <span className="battery-percent">{percent}%</span> */}
-
-            <button className="theme-button" onClick={themeMode}>
-              {theme === "light" ? "☀️" : "🌙"}
-            </button>
+            <div className="theme-button" onClick={themeMode}>
+              <Icon iconName={theme === "light" ? "faSun" : "faMoon"} />
+            </div>
           </div>
         </>
       )}

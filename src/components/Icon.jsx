@@ -35,6 +35,9 @@ import {
   faVolumeHigh,
   faPause,
   faPlay,
+  // Theme
+  faSun,
+  faMoon,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -76,6 +79,9 @@ const iconMap = {
   faVolumeHigh: faVolumeHigh,
   faPause: faPause,
   faPlay: faPlay,
+  // Theme
+  faSun: faSun,
+  faMoon: faMoon,
 };
 
 const Icon = ({ iconName }) => {

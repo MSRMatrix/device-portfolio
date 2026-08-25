@@ -27,7 +27,6 @@ const AudioSettings = () => {
       playing: !prev.playing,
     }));
   };
-  
 
   return (
     <div className="sound-settings">

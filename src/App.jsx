@@ -24,6 +24,7 @@ import Background from "./pages/settings/Background";
 import AudioSettings from "./pages/settings/AudioSettings";
 import DeviceColors from "./pages/settings/DeviceColors";
 import { AudioContext } from "./context/AudioContext";
+import { DeviceColorContext } from "./context/DeviceColorContext";
 
 function App() {
   const [appContext, setAppContext] = useState(false);
@@ -35,6 +36,10 @@ function App() {
     playing: false,
     loop: true,
   });
+const [deviceColorContext, setDeviceColorContext] = useState({
+  device: null,
+  frame: null
+});
 
   const router = createBrowserRouter([
     {
@@ -93,13 +98,15 @@ function App() {
 
   return (
     <>
-      <AudioContext.Provider value={{ audioContext, setAudioContext }}>
-        <BackgroundSettings.Provider value={{ background, setBackground }}>
-          <AppContext.Provider value={{ appContext, setAppContext }}>
-            <RouterProvider router={router} />
-          </AppContext.Provider>
-        </BackgroundSettings.Provider>
-      </AudioContext.Provider>
+      <DeviceColorContext.Provider value={{ deviceColorContext, setDeviceColorContext }}>
+        <AudioContext.Provider value={{ audioContext, setAudioContext }}>
+          <BackgroundSettings.Provider value={{ background, setBackground }}>
+            <AppContext.Provider value={{ appContext, setAppContext }}>
+              <RouterProvider router={router} />
+            </AppContext.Provider>
+          </BackgroundSettings.Provider>
+        </AudioContext.Provider>
+      </DeviceColorContext.Provider>
     </>
   );
 }
