@@ -21,13 +21,6 @@ const AudioSettings = () => {
     }));
   };
 
-  const togglePlaying = () => {
-    setAudioContext((prev) => ({
-      ...prev,
-      playing: !prev.playing,
-    }));
-  };
-
   return (
     <div className="sound-settings">
       <div className="sound-setting">
@@ -49,10 +42,6 @@ const AudioSettings = () => {
         <Icon
           iconName={audioContext.muted ? "faVolumeXmark" : "faVolumeHigh"}
         />
-      </button>
-
-      <button onClick={togglePlaying}>
-        <Icon iconName={audioContext.playing ? "faPause" : "faPlay"} />
       </button>
     </div>
   );
